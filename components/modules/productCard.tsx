@@ -12,15 +12,16 @@ import { brand } from "@/brand";
 import BookmarkProductButton from "../templates/bookmarkProductButton";
 
 function ProductCard({
+  isSpecial,
   className,
   product,
   ...p
 }: Omit<LinkProps, "href"> &
-  Omit<ComponentProps<"a">, "href"> & { product?: ProductT }) {
+  Omit<ComponentProps<"a">, "href"> & { product?: ProductT, isSpecial?: boolean }) {
   return (
     <Link
       href={`/products/${product?.id}`}
-      className={cn("card card-hover block", className)}
+      className={cn("card card-hover block", isSpecial ? "bg-transparent hover:border-white" : "", className)}
       {...p}
     >
       <div className="w-full aspect-video rounded-lg bg-background relative">
