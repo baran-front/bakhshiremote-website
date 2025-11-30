@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { SwiperSlide } from "swiper/react";
-import { ClockIcon, ShoppingCartIcon } from "lucide-react";
+import { ClockIcon } from "lucide-react";
 import { useQuery } from "@tanstack/react-query";
 
 import { Button } from "@/components/ui/button";
@@ -142,7 +142,7 @@ function HomePage() {
         )}
       </div>
 
-      <div className="bg-red-700 dark:bg-red-900 not-dark:text-background rounded-lg p-6 wrapper mt-24 lg:mt-40">
+      <div className="bg-primary/50 dark:bg-red-500 rounded-lg p-6 wrapper mt-24 lg:mt-40">
         <div className="flex items-center flex-wrap gap-3">
           <h3 className="heading">محصولات ویژه زمستانه</h3>
           <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
@@ -221,7 +221,7 @@ function HomePage() {
       <div className="wrapper mt-24 lg:mt-40 grid grid-cols-1 lg:grid-cols-2 gap-3">
         {banners.map((item, index) => (
           <Link
-            className={`w-full aspect-16/6 ${
+            className={`w-full aspect-16/6 rounded-lg card-hover ${
               index === 0 ? "lg:col-span-2" : ""
             }`}
             href={`/products/${item.linkUrl}`}
