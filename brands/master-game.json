@@ -1,0 +1,25 @@
+{
+  "name": "مستر گیم",
+  "apiUrl": "https://api.arvinvira.com/api",
+  "apiHostname": "api.arvinvira.com",
+  "apiBaseUrl": "https://api.arvinvira.com",
+  "apiTenant": "learn",
+  "apiToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImRkZmNmNTdiLTY1ZGUtNDg3NS1iM2ZmLWRjYTlkZGNlNTA0YyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQGxlYXJuLmNvbSIsImZ1bGxOYW1lIjoiTW9oYW1tYWRUYWppIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6ImFkbWluQGxlYXJuLmNvbSIsImlwQWRkcmVzcyI6IjE1MS4yMzguMTc2LjE3NCIsInRlbmFudCI6ImxlYXJuIiwicm9sZXMiOiJbXCJBZG1pblwiLFwiYmFzaWNcIl0iLCJjaWQiOiIwIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbW9iaWxlcGhvbmUiOiIwOTE1ODI5MzM4OCIsImV4cCI6MTc2NDU3Mzc2Mn0.W8MknqrvvesKAjodGAb-4XIhhtIMmGTVNMorrSFMaAw",
+  "logoImg": "/brands/master-game/logo.png",
+  "theme": {
+    "light": {
+      "background": "#f2f2f3",
+      "foreground": "#393c3e",
+      "card": "#e2e5e7",
+      "primary": "#a030bf",
+      "secondary": "#00b4f2"
+    },
+    "dark": {
+      "background": "#1e1e1e",
+      "foreground": "#ffffff",
+      "card": "#2b2b2b",
+      "primary": "#a030bf",
+      "secondary": "#00b4f2"
+    }
+  }
+}

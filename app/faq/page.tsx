@@ -1,0 +1,71 @@
+import Image from "next/image";
+
+import faqPageImage from "@/public/images/faq-page.png";
+import { getFaqs } from "@/lib/fetchs";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import Breadcrumbs from "@/components/modules/breadcrumbs";
+
+async function FAQPage() {
+  const faqs = await getFaqs({
+    pageNumber: 1,
+    pageSize: 999,
+    keyword: "",
+    orderBy: [""],
+  });
+
+  return (
+    <>
+      <Breadcrumbs links={[{ name: "سوالات متداول", href: "/faq" }]} />
+
+      <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-10 lg:mt-14">
+        <div className="flex flex-col justify-center max-lg:items-center">
+          <h1 className="heading">سوالات متداول</h1>
+          <p className="mt-3 typography max-lg:text-center">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+            است.
+          </p>
+        </div>
+        <Image
+          width={616}
+          height={393}
+          src={faqPageImage}
+          alt="سوالات متداول"
+          className="max-lg:row-start-1 mx-auto"
+        />
+      </div>
+
+      <div className="wrapper mt-24 lg:mt-40">
+        <Accordion
+          type="single"
+          collapsible
+          defaultValue="item-1"
+          className="w-full grid grid-cols-1 lg:grid-cols-2 gap-3"
+        >
+          {faqs.result?.data?.map((item) => (
+            <AccordionItem
+              key={item.id}
+              className="w-full"
+              value={`item-${item.id}`}
+            >
+              <AccordionTrigger className="w-full">
+                {item.title}
+              </AccordionTrigger>
+              <AccordionContent>
+                <p>{item.description}</p>
+              </AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
+    </>
+  );
+}
+
+export default FAQPage;
