@@ -20,7 +20,7 @@ function Footer() {
 
   const { data: links } = useQuery({
     queryKey: ["links-by-footer"],
-    queryFn: () => getMenuLinksByGroup({ groupnames: "mg-footer" }),
+    queryFn: () => getMenuLinksByGroup({ groupnames: "footer" }),
   });
 
   const { data: socials } = useQuery({

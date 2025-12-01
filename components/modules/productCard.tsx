@@ -58,7 +58,7 @@ function ProductCard({
             const displayPrice = Math.max(masterPrice - discountAmount, 0);
             return (
               <>
-                <span className="font-yekan-bakh-medium text-secondary">
+                <span className="font-yekan-bakh-medium">
                   {displayPrice.toLocaleString("fa")} تومان
                 </span>
                 {hasDiscount && (

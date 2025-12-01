@@ -61,7 +61,7 @@ function Socials() {
               height={64}
               alt={item.name || ""}
               src={brand.apiBaseUrl + (item.imageUrl || "")}
-              className="rounded-full ring-2 ring-card absolute z-20 bottom-full translate-1/2 left-1/2 -translate-x-1/2"
+              className="rounded-full absolute z-20 bottom-full translate-1/2 left-1/2 -translate-x-1/2"
             />
 
             <div className="glow p-0 relative bg-background h-28 overflow-hidden group flex justify-center items-center rounded-2xl">

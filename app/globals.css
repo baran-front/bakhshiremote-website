@@ -121,11 +121,10 @@
 
 /* Radial glow background for the moving blob */
 .glow-blob-bg-gradient-radial {
-  /* TODO:  */
   background: radial-gradient(
     160px 160px at center,
-    color-mix(in oklch, var(--glow-color), transparent 10%) 0%,
-    color-mix(in oklch, var(--glow-color), transparent 30%) 25%,
+    color-mix(in oklch, var(--glow-color, var(--foreground)), transparent 90%) 0%,
+    color-mix(in oklch, var(--glow-color, var(--foreground)), transparent 90%) 25%,
     transparent 60%
   );
 }

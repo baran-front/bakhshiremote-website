@@ -91,8 +91,8 @@ function HomePage() {
           >
             {categoriesData?.result?.data.slice(0, 8).map((category) => (
               <SwiperSlide key={category.id} className="pb-16">
-                <Link href={`/products?category=${category.id}`}>
-                  <div className="w-full aspect-square border p-3 rounded-full flex items-center justify-center">
+                <Link className="group" href={`/products?category=${category.id}`}>
+                  <div className="w-full aspect-square border group-hover:border-foreground transition-colors p-3 rounded-full flex items-center justify-center">
                     <Image
                       width={200}
                       height={200}
@@ -141,52 +141,54 @@ function HomePage() {
         )}
       </div>
 
-      <div className="bg-red-500 rounded-lg p-6 wrapper mt-24 lg:mt-40">
-        <div className="flex items-center flex-wrap gap-3">
-          <h3 className="heading not-dark:text-background">
-            {specialProducts?.title}
-          </h3>
-          {/* <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
+      <div className="wrapper mt-24 lg:mt-40">
+        <div className="bg-red-500 rounded-lg p-6">
+          <div className="flex items-center flex-wrap gap-3">
+            <h3 className="heading not-dark:text-background">
+              {specialProducts?.title}
+            </h3>
+            {/* <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
             <span>14:12:9</span>
             <ClockIcon className="size-5" />
           </div> */}
-          <Link href={"/products"} className="mr-auto">
-            <Button
-              className="border border-background dark:border-foreground not-dark:text-background"
-              variant="unstyled"
-            >
-              همه
-            </Button>
-          </Link>
-        </div>
+            <Link href={"/products"} className="mr-auto">
+              <Button
+                className="border border-background dark:border-foreground not-dark:text-background"
+                variant="unstyled"
+              >
+                همه
+              </Button>
+            </Link>
+          </div>
 
-        {isLoading ? null : (
-          <Carousel
-            deactiveNavigationClassname="bg-white/25"
-            activeNavigationClassname="bg-white"
-            breakpoints={{
-              0: {
-                slidesPerView: 1,
-              },
-              640: {
-                slidesPerView: 2,
-              },
-              1024: {
-                slidesPerView: 4,
-              },
-            }}
-            className="mt-6"
-          >
-            {specialProducts?.items.map((product) => (
-              <SwiperSlide key={product.id} className="pb-16">
-                <ProductCard
-                  isSpecial
-                  product={mapSectionItemToProduct(product)}
-                />
-              </SwiperSlide>
-            ))}
-          </Carousel>
-        )}
+          {isLoading ? null : (
+            <Carousel
+              deactiveNavigationClassname="bg-white/25"
+              activeNavigationClassname="bg-white"
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 4,
+                },
+              }}
+              className="mt-6"
+            >
+              {specialProducts?.items.map((product) => (
+                <SwiperSlide key={product.id} className="pb-16">
+                  <ProductCard
+                    isSpecial
+                    product={mapSectionItemToProduct(product)}
+                  />
+                </SwiperSlide>
+              ))}
+            </Carousel>
+          )}
+        </div>
       </div>
 
       <div className="wrapper mt-24 lg:mt-40">
