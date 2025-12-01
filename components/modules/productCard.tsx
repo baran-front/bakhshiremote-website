@@ -21,7 +21,11 @@ function ProductCard({
   return (
     <Link
       href={`/products/${product?.id}`}
-      className={cn("card card-hover block", isSpecial ? "bg-transparent hover:border-white" : "", className)}
+      className={cn(
+        "card card-hover block",
+        isSpecial ? "bg-white text-black" : "",
+        className
+      )}
       {...p}
     >
       <div className="w-full aspect-video rounded-lg bg-background relative">
@@ -59,7 +63,7 @@ function ProductCard({
                 </span>
                 {hasDiscount && (
                   <>
-                    <span className="bg-primary p-1 rounded text-xs not-dark:text-background">
+                    <span className="bg-primary p-1 rounded text-xs text-foreground not-dark:text-background">
                       {product.discountPercent}%
                     </span>
                     <span className="text-foreground/60 line-through text-xs mr-auto">
@@ -74,7 +78,11 @@ function ProductCard({
       )}
       <Button
         variant={"unstyled"}
-        className="w-full bg-foreground/5 shadow hover:bg-foreground/10"
+        className={`w-full shadow ${
+          isSpecial
+            ? "bg-black/10 hover:bg-black/15"
+            : "bg-foreground/10 hover:bg-foreground/15"
+        }`}
       >
         <span>جزئیات</span>
         <ArrowLeftIcon />

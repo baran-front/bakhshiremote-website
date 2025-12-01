@@ -9,7 +9,7 @@ export const brand = {
   apiTenant: "root",
   apiToken: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6Ijk1ZDg4OTQyLWY4NjUtNDYyOS1hOTJhLWI4MmNhODBiODIyMyIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL2VtYWlsYWRkcmVzcyI6ImFkbWluQHJvb3QuY29tIiwiZnVsbE5hbWUiOiJyb290QWRtaW4iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5Acm9vdC5jb20iLCJpcEFkZHJlc3MiOiIxNTEuMjM4LjE3Ni4xMDgiLCJ0ZW5hbnQiOiJyb290Iiwicm9sZXMiOiJbXCJBZG1pblwiXSIsImNpZCI6IjAiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9tb2JpbGVwaG9uZSI6IjA5MDMzMTA3NTcyIiwiZXhwIjoxNzY1NzkzMzk1fQ.HTm_zZW18g86VEhbHpgPtYVb0Lp9MCNPGkNG2RrFatI",
   logoImg: "/brands/bakhshi-remote/logo.png",
-  theme: {"light":{"background":"#FFFFFF","foreground":"#231F20","card":"#efefef","primary":"#ff8282","secondary":"#ffb282"},"dark":{"background":"#231F20","foreground":"#FFFFFF","card":"#302b2c","primary":"#AF0C0F","secondary":"#ff7219"}}
+  theme: {"light":{"background":"#FFFFFF","foreground":"#231F20","card":"#efefef","primary":"#AF0C0F","secondary":"#ffb282"},"dark":{"background":"#231F20","foreground":"#FFFFFF","card":"#302b2c","primary":"#AF0C0F","secondary":"#ff7219"}}
 } as const;
 
 // Type-safe brand variables

@@ -4,7 +4,13 @@ import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { Swiper, SwiperProps, useSwiper } from "swiper/react";
 
-function CarouselNavigation() {
+function CarouselNavigation({
+  deactiveNavigationClassname,
+  activeNavigationClassname,
+}: {
+  deactiveNavigationClassname?: string;
+  activeNavigationClassname?: string;
+}) {
   const swiper = useSwiper();
   const [activeIndex, setActiveIndex] = useState(0);
   const [slidesLength, setSlidesLength] = useState(0);
@@ -68,8 +74,9 @@ function CarouselNavigation() {
           <div
             className={cn(
               idx === activeButtonIndex
-                ? "bg-secondary"
-                : "bg-card not-dark:bg-foreground/10",
+                ? activeNavigationClassname || "bg-secondary"
+                : deactiveNavigationClassname ||
+                    "bg-card not-dark:bg-foreground/10",
               "h-full rounded-full transition-all group-hover:scale-y-200"
             )}
           ></div>
@@ -79,7 +86,16 @@ function CarouselNavigation() {
   );
 }
 
-function Carousel({ className, children, ...props }: SwiperProps) {
+function Carousel({
+  className,
+  children,
+  deactiveNavigationClassname,
+  activeNavigationClassname,
+  ...props
+}: SwiperProps & {
+  deactiveNavigationClassname?: string;
+  activeNavigationClassname?: string;
+}) {
   return (
     <Swiper
       grabCursor
@@ -88,7 +104,10 @@ function Carousel({ className, children, ...props }: SwiperProps) {
       {...props}
     >
       {children}
-      <CarouselNavigation />
+      <CarouselNavigation
+        deactiveNavigationClassname={deactiveNavigationClassname}
+        activeNavigationClassname={activeNavigationClassname}
+      />
     </Swiper>
   );
 }

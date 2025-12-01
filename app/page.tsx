@@ -30,10 +30,9 @@ function HomePage() {
       (section) => section.title === "جدید ترین محصولات"
     )?.items || [];
 
-  const specialProducts =
-    pageInfoData?.result?.data?.pageSections.find(
-      (section) => section.title === "محصولات ویژه"
-    )?.items || [];
+  const specialProducts = pageInfoData?.result?.data?.pageSections.find(
+    (section) => section.title === "محصولات ویژه"
+  );
 
   const banners =
     pageInfoData?.result?.data?.pageSections.find(
@@ -142,16 +141,18 @@ function HomePage() {
         )}
       </div>
 
-      <div className="bg-primary/50 dark:bg-red-500 rounded-lg p-6 wrapper mt-24 lg:mt-40">
+      <div className="bg-red-500 rounded-lg p-6 wrapper mt-24 lg:mt-40">
         <div className="flex items-center flex-wrap gap-3">
-          <h3 className="heading">محصولات ویژه زمستانه</h3>
-          <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
+          <h3 className="heading not-dark:text-background">
+            {specialProducts?.title}
+          </h3>
+          {/* <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
             <span>14:12:9</span>
             <ClockIcon className="size-5" />
-          </div>
+          </div> */}
           <Link href={"/products"} className="mr-auto">
             <Button
-              className="border border-background dark:border-foreground"
+              className="border border-background dark:border-foreground not-dark:text-background"
               variant="unstyled"
             >
               همه
@@ -161,6 +162,8 @@ function HomePage() {
 
         {isLoading ? null : (
           <Carousel
+            deactiveNavigationClassname="bg-white/25"
+            activeNavigationClassname="bg-white"
             breakpoints={{
               0: {
                 slidesPerView: 1,
@@ -174,11 +177,11 @@ function HomePage() {
             }}
             className="mt-6"
           >
-            {specialProducts.map((product) => (
+            {specialProducts?.items.map((product) => (
               <SwiperSlide key={product.id} className="pb-16">
                 <ProductCard
-                  product={mapSectionItemToProduct(product)}
                   isSpecial
+                  product={mapSectionItemToProduct(product)}
                 />
               </SwiperSlide>
             ))}

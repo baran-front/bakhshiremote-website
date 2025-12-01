@@ -64,9 +64,7 @@ async function ProductsPage({ searchParams }: NextPageProps) {
     <>
       <Breadcrumbs links={[{ name: "محصولات", href: "/products" }]} />
 
-      <ProductsCarousel slides={slides} />
-
-      <div className="wrapper mt-24 lg:mt-40">
+      <div className="wrapper mt-10 lg:mt-14">
         <div className="grid grid-cols-12 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-3">
           <SearchParamsSearch
             className="w-full max-sm:col-span-10 max-lg:col-span-2"
