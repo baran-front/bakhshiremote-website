@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 const next = require("next");
 const http = require("http");
-const port = 3040;
+const port = 3050;
 
 const app = next({ dev: false });
 const handle = app.getRequestHandler();
