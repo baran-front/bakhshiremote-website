@@ -6,8 +6,6 @@ import failedImg from "@/public/images/cart-result-failed.png";
 import successImg from "@/public/images/cart-result-success.png";
 import { NextPageProps } from "@/types/app.types";
 
-const isSuccess = true;
-
 async function CartResultPage({ searchParams }: NextPageProps) {
   const sp = await searchParams;
   const { status } = sp;

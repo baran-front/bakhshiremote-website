@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="fa" dir="rtl" suppressHydrationWarning>
       <head>
-        <link rel="icon" href={brand.logoImg} />
+        <link rel="icon" href={brand.logoImg.dark} />
       </head>
       <body className="antialiased">
         <ThemeStyles />

@@ -13,8 +13,10 @@ import HeaderSearchButton from "./headerSearchButton";
 import HeaderProfileButton from "./headerProfileButton";
 import { getMenuLinksByGroup, getMe } from "@/lib/fetchs";
 import { getCookie } from "cookies-next/client";
+import { useTheme } from "next-themes";
 
 export function Header() {
+  const { theme } = useTheme();
   const pathname = usePathname();
   const { data: user } = useQuery({
     queryKey: ["user"],
@@ -49,8 +51,8 @@ export function Header() {
             width={50}
             height={50}
             alt="گیم مستر"
-            src={brand.logoImg}
             className="h-full w-auto"
+            src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
           />
           <span className="max-sm:hidden">{brand.name}</span>
         </Link>

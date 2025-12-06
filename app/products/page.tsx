@@ -2,7 +2,7 @@ import Faq from "@/components/templates/faq";
 import Socials from "@/components/templates/socials";
 import ProductCard from "@/components/modules/productCard";
 import { getProducts } from "@/lib/fetchs";
-import { getCategory, getPageInfo } from "@/lib/fetchs";
+import { getCategory } from "@/lib/fetchs";
 import SelectSearchParamsFilter from "@/components/modules/selectSearchParamsFilter";
 import { NextPageProps } from "@/types/app.types";
 import SearchParamsSearch from "@/components/modules/searchParamsSearch";

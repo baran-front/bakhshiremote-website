@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { CircleStarIcon, MessageSquareTextIcon } from "lucide-react";
+import { MessageSquareTextIcon } from "lucide-react";
 
 import { brand } from "@/brand";
 import ProductCounter from "@/components/templates/productCounter";
