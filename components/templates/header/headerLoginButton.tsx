@@ -137,7 +137,7 @@ function HeaderLoginButton({ ...props }: ComponentProps<typeof Button>) {
     if (!user.result?.firstName || !user.result.lastName) {
       router.push("/dashboard/profile/edit");
     } else {
-      router.push("/dashboard");
+      router.push("/dashboard/desk");
     }
   }
 
