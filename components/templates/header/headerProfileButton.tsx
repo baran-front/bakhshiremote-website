@@ -19,9 +19,9 @@ function HeaderProfileButton() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className="hidden lg:flex lg:items-center lg:gap-1.5 group">
+        <button className="hidden lg:flex lg:items-center lg:gap-3 lg:hover:bg-card p-3 rounded-full">
           <UserCircleIcon className="size-5" />
-          <p className="text-sm lg:group-hover:bg-card lg:transition-colors hidden lg:flex lg:items-center h-10 px-3 gap-1.5 rounded-full">
+          <p className="text-sm lg:transition-colors hidden lg:flex lg:items-center gap-1.5">
             <span>
               {user?.result?.firstName || "کاربر"}{" "}
               {user?.result?.lastName || "ناشناس"}
