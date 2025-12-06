@@ -50,7 +50,7 @@ export function Header() {
           <Image
             width={50}
             height={50}
-            alt="گیم مستر"
+            alt={brand.name}
             className="h-full w-auto"
             src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
           />

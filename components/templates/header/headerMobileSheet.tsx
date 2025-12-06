@@ -60,7 +60,7 @@ function HeaderMobileSheet({
           <Image
             width={50}
             height={50}
-            alt="گیم مستر"
+            alt={brand.name}
             src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
           />
           <span>{brand.name}</span>

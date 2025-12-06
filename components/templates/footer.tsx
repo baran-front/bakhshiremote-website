@@ -99,7 +99,7 @@ function Footer() {
             </div>
           </div>
           <div className="flex justify-center items-center flex-col gap-3 mt-12">
-            <Image width={58} height={56} alt="گیم مستر" src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark} />
+            <Image width={58} height={56} alt={brand.name} src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark} />
             <p dir="ltr">@{new Date().getFullYear()} وب سایت {brand.name}</p>
             <div className="flex items-center gap-3">
               {socials?.result?.data?.map((item) => (

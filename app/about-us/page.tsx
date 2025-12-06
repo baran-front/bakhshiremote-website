@@ -9,6 +9,7 @@ import aboutUsOurAbilitiesImg from "@/public/images/about-us_our-abilities.png";
 import Socials from "@/components/templates/socials";
 import TeamCarousel from "@/components/templates/teamCarousel";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
+import { brand } from "@/brand";
 
 function AboutUsPage() {
   return (
@@ -17,7 +18,7 @@ function AboutUsPage() {
 
       <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-10 lg:mt-14">
         <div className="flex flex-col max-lg:items-center justify-center">
-          <h1 className="heading">درباره مستر گیم</h1>
+          <h1 className="heading">درباره {brand.name}</h1>
           <p className="typography mt-6">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
@@ -29,7 +30,7 @@ function AboutUsPage() {
           width={616}
           height={393}
           src={aboutUsImg}
-          alt="درباره مستر گیم"
+          alt={`درباره ${brand.name}`}
           className="max-lg:row-start-1 max-w-full mx-auto"
         />
       </div>

@@ -8,6 +8,7 @@ import { getCookie } from "cookies-next/client";
 import { ChevronLeftIcon } from "lucide-react";
 import ProductCard from "@/components/modules/productCard";
 import { ProductT } from "@/types/api.types";
+import { brand } from "@/brand";
 
 const STATUS_META: Record<
   number,
@@ -88,7 +89,7 @@ function DashboardDesk({ className }: { className?: string }) {
         <p className="font-yekan-bakh-semi-bold sm:title sm:ps-6 sm:border-s-2 sm:leading-relaxed max-sm:text-center">
           {user?.result?.firstName || "کاربر"}{" "}
           {user?.result?.lastName || "ناشناس"} عزیز{" "}
-          <br className="max-sm:hidden" /> به گیم مستر خوش آمدید!
+          <br className="max-sm:hidden" /> به {brand.name} خوش آمدید!
         </p>
       </div>
 
