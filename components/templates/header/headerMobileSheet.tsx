@@ -18,6 +18,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMenuLinksByGroup, getMe } from "@/lib/fetchs";
 import { getCookie } from "cookies-next/client";
 import HeaderLoginButton from "./headerLoginButton";
+import { useTheme } from "next-themes";
 
 function HeaderMobileSheet({
   links,
@@ -26,6 +27,7 @@ function HeaderMobileSheet({
   handleActiveLink: (link: string) => boolean;
   links: MenuLinkT[];
 }) {
+  const { theme } = useTheme();
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -59,7 +61,7 @@ function HeaderMobileSheet({
             width={50}
             height={50}
             alt="گیم مستر"
-            src={brand.logoImg}
+            src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
           />
           <span>{brand.name}</span>
 
