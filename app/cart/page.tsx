@@ -225,7 +225,7 @@ function CartPage() {
                         );
                         return (
                           <div className="mr-auto flex flex-col items-end gap-1.5">
-                            <span className="font-yekan-bakh-medium text-secondary">
+                            <span className="text-secondary">
                               {(displayPrice * item.quantity).toLocaleString(
                                 "fa"
                               )}{" "}

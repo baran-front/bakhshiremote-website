@@ -61,7 +61,7 @@ function HeaderMobileSheet({
             alt="گیم مستر"
             src={brand.logoImg}
           />
-          <span className="font-yekan-bakh-medium">{brand.name}</span>
+          <span>{brand.name}</span>
 
           <Button
             className="mr-auto"

@@ -82,7 +82,7 @@ function ProductCounter({ product }: ProductCounterProps) {
                       {product.discountPercent}%
                     </span>
                   )}
-                  <span className="text-secondary font-yekan-bakh-medium">
+                  <span className="text-secondary">
                     {displayPrice.toLocaleString("fa")} تومان
                   </span>
                 </div>

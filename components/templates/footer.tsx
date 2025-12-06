@@ -47,14 +47,17 @@ function Footer() {
                   <ul className="space-y-3">
                     {item.children.map((childItem) => (
                       <li className="max-lg:text-center" key={childItem.id}>
-                        <Link href={childItem.linkUrl || ""}>
-                          <Button
-                            variant={"unstyled"}
-                            className="hover:underline"
-                          >
-                            {childItem.name}
-                          </Button>
-                        </Link>
+                        {childItem.linkUrl?.startsWith("/") ? (
+
+                          <Link href={childItem.linkUrl || ""}>
+                            <Button
+                              variant={"unstyled"}
+                              className="hover:underline"
+                            >
+                              {childItem.name}
+                            </Button>
+                          </Link>
+                        ) : <p className="text-sm">{childItem.name}</p>}
                       </li>
                     ))}
                   </ul>
@@ -97,7 +100,7 @@ function Footer() {
           </div>
           <div className="flex justify-center items-center flex-col gap-3 mt-12">
             <Image width={58} height={56} alt="گیم مستر" src={brand.logoImg} />
-            <p dir="ltr">@{new Date().getFullYear()} Master gamer website</p>
+            <p dir="ltr">@{new Date().getFullYear()} وب سایت {brand.name}</p>
             <div className="flex items-center gap-3">
               {socials?.result?.data?.map((item) => (
                 <Link

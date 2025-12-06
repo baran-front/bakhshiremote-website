@@ -38,7 +38,7 @@ function ProductCard({
         />
       </div>
       <div className="flex items-center justify-between">
-        <p className="font-yekan-bakh-medium">{product?.name}</p>
+        <p>{product?.name}</p>
         {product && (
           <BookmarkProductButton
             variant={"unstyled"}
@@ -58,7 +58,7 @@ function ProductCard({
             const displayPrice = Math.max(masterPrice - discountAmount, 0);
             return (
               <>
-                <span className="font-yekan-bakh-medium">
+                <span>
                   {displayPrice.toLocaleString("fa")} تومان
                 </span>
                 {hasDiscount && (

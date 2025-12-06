@@ -2,12 +2,6 @@
 @import "tw-animate-css";
 
 @font-face {
-  font-family: "yekan-bakh";
-  font-display: swap;
-  src: url("/fonts/yekan-bakh/yekan-bakh-regular.ttf");
-}
-
-@font-face {
   font-family: "yekan-bakh-medium";
   font-display: swap;
   src: url("/fonts/yekan-bakh/yekan-bakh-medium.ttf");
@@ -33,7 +27,6 @@
   --radius-xl: calc(var(--radius) + 4px);
 
   --font-*: initial;
-  --font-yekan-bakh: "yekan-bakh";
   --font-yekan-bakh-medium: "yekan-bakh-medium";
   --font-yekan-bakh-semi-bold: "yekan-bakh-semi-bold";
 }
@@ -52,7 +45,7 @@
     @apply border-foreground/10 outline-foreground/50;
   }
   body {
-    @apply bg-background text-foreground font-yekan-bakh;
+    @apply bg-background text-foreground font-yekan-bakh-medium;
   }
   button {
     @apply cursor-pointer;
@@ -68,7 +61,7 @@
 }
 
 @utility title {
-  @apply font-yekan-bakh-medium text-lg lg:text-xl;
+  @apply text-lg lg:text-xl;
 }
 
 @utility typography {
