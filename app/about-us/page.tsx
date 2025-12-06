@@ -7,7 +7,6 @@ import aboutUsOurFutureImg from "@/public/images/about-us_our-future.png";
 import aboutUsOurMissionImg from "@/public/images/about-us_our-mission.png";
 import aboutUsOurAbilitiesImg from "@/public/images/about-us_our-abilities.png";
 import Socials from "@/components/templates/socials";
-import TeamCarousel from "@/components/templates/teamCarousel";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
 import { brand } from "@/brand";
 
@@ -199,7 +198,7 @@ function AboutUsPage() {
         />
       </div>
 
-      <TeamCarousel />
+      {/* <TeamCarousel /> */}
 
       <Socials />
     </>
