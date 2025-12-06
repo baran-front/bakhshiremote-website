@@ -12,8 +12,8 @@ import { brand } from "@/brand";
 import { LoginModalProvider } from "@/components/providers/loginModalProvider";
 
 export const metadata: Metadata = {
-  title: "Mastergame",
-  description: "Mastergame is a game development company",
+  title: "بخشی ریموت",
+  description: "فروشگاه بخشی ریموت",
 };
 
 export default function RootLayout({

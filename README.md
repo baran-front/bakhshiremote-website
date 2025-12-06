@@ -1,4 +1,4 @@
-# Mastergame Website
+# Bakhshiremote Website
 
 A Next.js 16 e-commerce website built with TypeScript, Tailwind CSS, React Query, and React Hook Form.
 
@@ -53,7 +53,7 @@ npm start
 ## Project Structure
 
 ```
-mastergame-website/
+bakhshiremote-website/
 ├── app/                    # Next.js App Router pages
 │   ├── layout.tsx          # Root layout (providers, header, footer)
 │   ├── page.tsx            # Home page
