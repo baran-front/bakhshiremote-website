@@ -2,7 +2,6 @@ import Faq from "@/components/templates/faq";
 import Socials from "@/components/templates/socials";
 import ProductCard from "@/components/modules/productCard";
 import { getProducts } from "@/lib/fetchs";
-import ProductsCarousel from "@/components/templates/productsCarousel";
 import { getCategory, getPageInfo } from "@/lib/fetchs";
 import SelectSearchParamsFilter from "@/components/modules/selectSearchParamsFilter";
 import { NextPageProps } from "@/types/app.types";
@@ -29,12 +28,6 @@ const PRICE_RANGE_OPTIONS = [
 ];
 
 async function ProductsPage({ searchParams }: NextPageProps) {
-  const pageInfo = await getPageInfo({ pageId: "4" });
-  const slides =
-    pageInfo.result?.data?.pageSections.find(
-      (section) => section.title === "اسلایدر"
-    )?.items || [];
-
   const sp = await searchParams;
   const sort = sp.sort;
   const search = sp.search;
@@ -64,8 +57,8 @@ async function ProductsPage({ searchParams }: NextPageProps) {
     <>
       <Breadcrumbs links={[{ name: "محصولات", href: "/products" }]} />
 
-      <div className="wrapper mt-10 lg:mt-14">
-        <div className="grid grid-cols-12 sm:grid-cols-3 lg:grid-cols-5 gap-3 mt-3">
+      <div className="wrapper grid grid-cols-1 lg:grid-cols-4 gap-6 mt-10 lg:mt-14">
+        <div className="lg:space-y-3 lg:h-max lg:sticky lg:top-26 max-lg:flex max-lg:gap-3">
           <SearchParamsSearch
             className="w-full max-sm:col-span-10 max-lg:col-span-2"
             placeholder="جستجو..."
@@ -101,19 +94,21 @@ async function ProductsPage({ searchParams }: NextPageProps) {
           <ProductsRegionSelect className="max-sm:hidden" />
         </div>
 
-        <div className="card-grid-wrapper mt-6">
-          {products.result?.data?.data.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+        <div className="lg:col-span-3 h-max">
+          <div className="card-grid-wrapper">
+            {products.result?.data?.data.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
 
-        <SpPagination
-          pageSize={10}
-          className="mt-6"
-          pageParamName="pageNumber"
-          totalPages={products.result?.data?.totalPages}
-          totalCount={products.result?.data?.totalCount}
-        />
+          <SpPagination
+            pageSize={10}
+            className="mt-6"
+            pageParamName="pageNumber"
+            totalPages={products.result?.data?.totalPages}
+            totalCount={products.result?.data?.totalCount}
+          />
+        </div>
       </div>
 
       <Faq />
