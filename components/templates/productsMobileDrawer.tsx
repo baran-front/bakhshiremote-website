@@ -25,13 +25,13 @@ function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { labe
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerTrigger asChild>
-        <div className="flex items-center justify-center col-span-2 sm:hidden">
+        <div className="flex items-center justify-center col-span-2 lg:hidden">
           <Button variant="outline" size={"icon"}><FunnelIcon /></Button>
         </div>
       </DrawerTrigger>
 
       <DrawerContent>
-        <div className="mx-auto w-full max-w-sm">
+        <div className="w-full">
           <DrawerHeader>
             <DrawerTitle>فیلتر محصولات</DrawerTitle>
           </DrawerHeader>
@@ -43,15 +43,6 @@ function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { labe
               placeholder="مرتب سازی بر اساس..."
             />
 
-            <SearchParamsRangeSlider
-              className="w-full"
-              searchParamsKey="priceRange"
-              min={0}
-              max={1000000}
-              step={1000}
-              label="محدوده قیمت"
-            />
-
             <SelectSearchParamsFilter
               className="w-full"
               searchParamsKey="category"
@@ -60,6 +51,15 @@ function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { labe
             />
 
             <ProductsRegionSelect />
+
+            <SearchParamsRangeSlider
+              className="w-full"
+              searchParamsKey="priceRange"
+              min={0}
+              max={1000000}
+              step={1000}
+              label="محدوده قیمت"
+            />
           </div>
         </div>
       </DrawerContent>

@@ -52,7 +52,7 @@ async function ProductsPage({ searchParams }: NextPageProps) {
       <div className="wrapper grid grid-cols-1 lg:grid-cols-4 gap-6 mt-10 lg:mt-14">
         <div className="lg:space-y-3 lg:h-max lg:sticky lg:top-26 max-lg:flex max-lg:gap-3">
           <SearchParamsSearch
-            className="w-full max-sm:col-span-10 max-lg:col-span-2"
+            className="w-full max-lg:col-span-10"
             placeholder="جستجو..."
           />
 
@@ -62,29 +62,29 @@ async function ProductsPage({ searchParams }: NextPageProps) {
           />
 
           <SelectSearchParamsFilter
-            className="w-full max-sm:hidden"
+            className="w-full max-lg:hidden"
             searchParamsKey="sort"
             options={SORT_OPTIONS}
             placeholder="مرتب سازی بر اساس..."
           />
 
-          <SearchParamsRangeSlider
-            className="w-full max-sm:hidden"
-            searchParamsKey="priceRange"
-            min={0}
-            max={1000000}
-            step={1000}
-            label="محدوده قیمت"
-          />
-
           <SelectSearchParamsFilter
-            className="w-full max-sm:hidden"
+            className="w-full max-lg:hidden"
             searchParamsKey="category"
             options={categories}
             placeholder="دسته بندی..."
           />
 
-          <ProductsRegionSelect className="max-sm:hidden" />
+          <ProductsRegionSelect className="max-lg:hidden" />
+
+          <SearchParamsRangeSlider
+            min={0}
+            step={100_000}
+            max={10_000_000}
+            label="محدوده قیمت"
+            searchParamsKey="priceRange"
+            className="w-full max-lg:hidden"
+          />
         </div>
 
         <div className="lg:col-span-3 h-max">
