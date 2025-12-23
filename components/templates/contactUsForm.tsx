@@ -78,10 +78,10 @@ function ContactUsForm() {
               </div>
               <div>
                 <Input
-                  {...register("contact_channel")}
                   type="email"
-                  placeholder="آدرس Email"
+                  placeholder="آدرس ایمیل"
                   aria-invalid={!!errors.contact_channel}
+                  {...register("contact_channel")}
                 />
                 {errors.contact_channel && (
                   <p className="text-red-500 text-sm mt-1">

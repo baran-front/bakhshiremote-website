@@ -43,7 +43,7 @@ async function ArticleDetailPage({ params }: NextPageProps) {
         <CommentForm type="article" typeId={id} />
 
         <div className="lg:col-span-3">
-          {comments.result?.data?.map((item) => (
+          {comments.result?.data.length ? comments.result?.data?.map((item) => (
             <div key={item.id} className="card not-first:mt-6">
               <div className="flex items-center gap-3">
                 <Image
@@ -110,7 +110,7 @@ async function ArticleDetailPage({ params }: NextPageProps) {
                 ))
                 : null}
             </div>
-          ))}
+          )) : <p className="card">هیچ نظری ثبت نشده است</p>}
         </div>
       </div>
 

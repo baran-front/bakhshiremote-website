@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 
 function ArticleCard({ article }: { article: ArticleT }) {
   return (
-    <Link href={`/articles/${article.id}`} className="card card-hover">
+    <Link href={`/articles/${article.id}`} className="card card-hover flex flex-col">
       <Image
         width={373}
         height={210}
@@ -21,12 +21,12 @@ function ArticleCard({ article }: { article: ArticleT }) {
         <CalendarDaysIcon className="size-5" />
         <span>{new Date(article.published).toLocaleDateString("fa")}</span>
       </div>
-      <p className="title line-clamp-1">{article.title}</p>
+      <p className="title line-clamp-2">{article.title}</p>
       <p className="line-clamp-3 leading-relaxed">{article.summery}</p>
       <Button
         size={"icon"}
         variant={"ghost"}
-        className="w-full bg-foreground/5 shadow-lg hover:bg-foreground/10"
+        className="w-full bg-foreground/5 shadow-lg hover:bg-foreground/10 mt-auto"
       >
         <span>مشاهده مطلب</span>
         <ArrowLeftIcon className="size-5" />

@@ -38,7 +38,7 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
           { name: "اخبار و مقالات", href: "/articles" },
           { name: article.title, href: `/articles/${article.id}` },
         ]}
-      />
+      />  
 
       <div className="wrapper mt-10 lg:mt-14">
         <div className="grid gap-6 mt-6 grid-cols-1">
@@ -108,7 +108,7 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
 
           {/* Article content */}
           <div ref={articleContentRef} className="h-max lg:col-span-8">
-            <div dangerouslySetInnerHTML={{ __html: article.content }} />
+            <div className="cms" dangerouslySetInnerHTML={{ __html: article.content }} />
 
             <div className="pt-6 mt-6 border-t-2">
               <div className="card shadow-lg flex items-center gap-3 space-y-0 max-lg:flex-col">
