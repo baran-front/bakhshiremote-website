@@ -8,11 +8,18 @@ import SearchParamsRangeSlider from "../modules/searchParamsRangeSlider";
 import ProductsRegionSelect from "./productsRegionSelect";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
+import { useQuery } from "@tanstack/react-query";
+import { getProductsPriceRange } from "@/lib/fetchs";
 
 
 function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { label: string; value: string }[]; categories: { label: string; value: string }[] }) {
   const pathname = usePathname();
   const sp = useSearchParams();
+
+  const { data: productsPriceRange } = useQuery({
+    queryKey: ["products-price-range"],
+    queryFn: () => getProductsPriceRange(),
+  })
 
   const [open, setOpen] = useState(false);
 
@@ -53,12 +60,12 @@ function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { labe
             <ProductsRegionSelect />
 
             <SearchParamsRangeSlider
-              className="w-full"
-              searchParamsKey="priceRange"
-              min={0}
-              max={1000000}
               step={1000}
+              className="w-full"
               label="محدوده قیمت"
+              searchParamsKey="priceRange"
+              min={productsPriceRange?.result?.[0]?.min || 0}
+              max={productsPriceRange?.result?.[0]?.max || 0}
             />
           </div>
         </div>

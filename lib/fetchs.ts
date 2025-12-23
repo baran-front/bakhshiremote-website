@@ -532,6 +532,9 @@ export const createOrderWithWallet = ({
     }),
   });
 
+export const getProductsPriceRange = () =>
+  safeFetch<[{ max: number, min: number }]>("/v1/products/client/prefilter/1", {})
+
 // ============================================
 // Ticket Fetches
 // ============================================

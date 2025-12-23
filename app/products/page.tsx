@@ -1,7 +1,7 @@
 import Faq from "@/components/templates/faq";
 import Socials from "@/components/templates/socials";
 import ProductCard from "@/components/modules/productCard";
-import { getProducts } from "@/lib/fetchs";
+import { getProducts, getProductsPriceRange } from "@/lib/fetchs";
 import { getCategory } from "@/lib/fetchs";
 import SelectSearchParamsFilter from "@/components/modules/selectSearchParamsFilter";
 import { NextPageProps } from "@/types/app.types";
@@ -45,6 +45,8 @@ async function ProductsPage({ searchParams }: NextPageProps) {
     })
   );
 
+  const productsPriceRange = await getProductsPriceRange();
+
   return (
     <>
       <Breadcrumbs links={[{ name: "محصولات", href: "/products" }]} />
@@ -78,12 +80,12 @@ async function ProductsPage({ searchParams }: NextPageProps) {
           <ProductsRegionSelect className="max-lg:hidden" />
 
           <SearchParamsRangeSlider
-            min={0}
             step={100_000}
-            max={10_000_000}
             label="محدوده قیمت"
             searchParamsKey="priceRange"
             className="w-full max-lg:hidden"
+            min={productsPriceRange.result?.[0]?.min || 0}
+            max={productsPriceRange.result?.[0]?.max || 0}
           />
         </div>
 
