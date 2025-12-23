@@ -3,7 +3,7 @@ import type { NextRequest } from "next/server";
 import { getMe } from "./lib/fetchs";
 
 // Simple in-memory TTL cache keyed by token to avoid re-fetching between page transitions
-const TTL_MS = 5_000; // 5 seconds
+const TTL_MS = 60_000 * 60; // 60 minutes
 type AuthCacheEntry = { ok: boolean; expiresAt: number };
 const authCache = new Map<string, AuthCacheEntry>();
 

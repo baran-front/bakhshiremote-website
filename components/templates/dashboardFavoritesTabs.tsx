@@ -15,7 +15,9 @@ function DashboardFavoritesTabs({
   const handleChange = (value: string) => {
     const sp = new URLSearchParams(searchParams?.toString());
     sp.set("category", value);
-    router.push(`${pathname}?${sp.toString()}`);
+    router.push(`${pathname}?${sp.toString()}`, {
+      scroll: false
+    });
   };
 
   const activeCategory = searchParams?.get("category");

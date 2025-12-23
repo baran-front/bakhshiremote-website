@@ -4,12 +4,13 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from 
 import { Button } from "../ui/button";
 import { FunnelIcon } from "lucide-react";
 import SelectSearchParamsFilter from "../modules/selectSearchParamsFilter";
+import SearchParamsRangeSlider from "../modules/searchParamsRangeSlider";
 import ProductsRegionSelect from "./productsRegionSelect";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 
-function ProductsMobileDrawer({ categories, priceRangeOptions, sortOptions }: { sortOptions: { label: string; value: string }[]; priceRangeOptions: { label: string; value: string }[]; categories: { label: string; value: string }[] }) {
+function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { label: string; value: string }[]; categories: { label: string; value: string }[] }) {
   const pathname = usePathname();
   const sp = useSearchParams();
 
@@ -42,11 +43,13 @@ function ProductsMobileDrawer({ categories, priceRangeOptions, sortOptions }: { 
               placeholder="مرتب سازی بر اساس..."
             />
 
-            <SelectSearchParamsFilter
+            <SearchParamsRangeSlider
               className="w-full"
               searchParamsKey="priceRange"
-              options={priceRangeOptions}
-              placeholder="محدوده قیمت..."
+              min={0}
+              max={1000000}
+              step={1000}
+              label="محدوده قیمت"
             />
 
             <SelectSearchParamsFilter

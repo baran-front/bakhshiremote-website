@@ -49,7 +49,9 @@ function DashboardWalletContent() {
   const handleSortChange = (value: string) => {
     const sp = new URLSearchParams(searchParams?.toString());
     sp.set("sortBy", value);
-    router.push(`${pathname}?${sp.toString()}`);
+    router.push(`${pathname}?${sp.toString()}`, {
+      scroll: false
+    });
   };
 
   const { data: walletTotalData, isLoading: isLoadingWalletTotal } = useQuery({

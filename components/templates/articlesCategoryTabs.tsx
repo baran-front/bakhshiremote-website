@@ -18,14 +18,18 @@ const ArticlesCategoryTabs = ({ categories }: ArticlesCategoryTabsPropsT) => {
   const handleAllNavigation = () => {
     const sp = new URLSearchParams(searchParams?.toString());
     sp.delete("category");
-    router.push(`${pathname}${sp.toString() ? `?${sp.toString()}` : ""}`);
+    router.push(`${pathname}${sp.toString() ? `?${sp.toString()}` : ""}`, {
+      scroll: false
+    });
   };
 
   // For specific category, set 'category' param
   const handleNavigation = (id: number) => {
     const sp = new URLSearchParams(searchParams?.toString());
     sp.set("category", String(id));
-    router.push(`${pathname}?${sp.toString()}`);
+    router.push(`${pathname}?${sp.toString()}`, {
+      scroll: false
+    });
   };
 
   // Determine which category is active from current search params

@@ -89,10 +89,14 @@ function CartPage() {
       if (response.status === 200) {
         await refetchBasket();
         toast.success("سفارش با موفقیت ثبت شد");
-        router.push("/cart/result?status=success");
+        router.push("/cart/result?status=success", {
+          scroll: false
+        });
       } else {
         toast.error("خطا در ثبت سفارش. لطفا دوباره تلاش کنید");
-        router.push("/cart/result?status=error");
+        router.push("/cart/result?status=error", {
+          scroll: false
+        });
       }
     } catch (error) {
       console.error("Error creating order:", error);

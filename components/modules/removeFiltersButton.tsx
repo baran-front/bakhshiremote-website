@@ -15,7 +15,9 @@ function RemoveFiltersButton({ ...props }: ComponentProps<typeof Button>) {
 
   const handleRemoveFilters = () => {
     // Navigate to pathname without any query params
-    router.push(pathname);
+    router.push(pathname, {
+      scroll: false
+    });
   };
 
   return (

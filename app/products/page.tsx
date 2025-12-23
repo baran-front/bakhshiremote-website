@@ -6,6 +6,7 @@ import { getCategory } from "@/lib/fetchs";
 import SelectSearchParamsFilter from "@/components/modules/selectSearchParamsFilter";
 import { NextPageProps } from "@/types/app.types";
 import SearchParamsSearch from "@/components/modules/searchParamsSearch";
+import SearchParamsRangeSlider from "@/components/modules/searchParamsRangeSlider";
 import ProductsRegionSelect from "@/components/templates/productsRegionSelect";
 import SpPagination from "@/components/modules/spPagination";
 import ProductsMobileDrawer from "@/components/templates/productsMobileDrawer";
@@ -16,15 +17,6 @@ const SORT_OPTIONS = [
   { label: "قدیمی‌ترین", value: "OLDEST" },
   { label: "ارزان‌ترین", value: "CHEAPEST" },
   { label: "گران‌ترین", value: "EXPENSIVE" },
-];
-
-const PRICE_RANGE_OPTIONS = [
-  { label: "0 تا 100,000", value: "0-100000" },
-  { label: "100,000 تا 200,000", value: "100000-200000" },
-  { label: "200,000 تا 300,000", value: "200000-300000" },
-  { label: "300,000 تا 400,000", value: "300000-400000" },
-  { label: "400,000 تا 500,000", value: "400000-500000" },
-  { label: "500,000 تا 600,000", value: "500000-600000" },
 ];
 
 async function ProductsPage({ searchParams }: NextPageProps) {
@@ -66,7 +58,6 @@ async function ProductsPage({ searchParams }: NextPageProps) {
 
           <ProductsMobileDrawer
             categories={categories}
-            priceRangeOptions={PRICE_RANGE_OPTIONS}
             sortOptions={SORT_OPTIONS}
           />
 
@@ -77,11 +68,13 @@ async function ProductsPage({ searchParams }: NextPageProps) {
             placeholder="مرتب سازی بر اساس..."
           />
 
-          <SelectSearchParamsFilter
+          <SearchParamsRangeSlider
             className="w-full max-sm:hidden"
             searchParamsKey="priceRange"
-            options={PRICE_RANGE_OPTIONS}
-            placeholder="محدوده قیمت..."
+            min={0}
+            max={1000000}
+            step={1000}
+            label="محدوده قیمت"
           />
 
           <SelectSearchParamsFilter
