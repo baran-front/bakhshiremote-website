@@ -9,6 +9,8 @@ import SpPagination from "@/components/modules/spPagination";
 import { Button } from "@/components/ui/button";
 import { searchOrders } from "@/lib/fetchs";
 import { NextPageProps } from "@/types/app.types";
+import { getCookie } from "cookies-next";
+import { cookies } from "next/headers";
 
 const FILTER_OPTIONS = [
   { label: "جدید ترین", value: "NEWEST" },
@@ -40,11 +42,16 @@ async function DashboardOrdersPage({ searchParams }: NextPageProps) {
   const pageNumber = +(sp.pageNumber || "1") || 1;
   const sortValue = sp.sort;
 
+  const cookieStore = await cookies();
+  const token = cookieStore.get("token")?.value || "";
+
   const ordersResponse = await searchOrders({
+    token,
     pageNumber,
     pageSize: PAGE_SIZE,
     orderBy: [sortValue || ""],
   });
+
 
   const orders = ordersResponse?.result?.data;
 

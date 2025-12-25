@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import {
   CopyIcon,
@@ -22,18 +22,36 @@ import {
   InputGroupButton,
   InputGroupInput,
 } from "@/components/ui/input-group";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
 import { brand } from "@/brand";
 import { useBasket } from "@/lib/hooks/useBasket";
 import {
   getTransactionWalletTotal,
   getMe,
-  createOrderWithWallet,
+  createHandyOrder,
 } from "@/lib/fetchs";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
 
 function CartPage() {
   const router = useRouter();
   const [isCreatingOrder, setIsCreatingOrder] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    address1: "",
+    phone1: "",
+    postStateNumber: "",
+    userFullname: "",
+    city: "",
+    description: "",
+  });
   const {
     cartItems,
     isLoading,
@@ -63,8 +81,41 @@ function CartPage() {
 
   const walletTotal = walletTotalData?.result?.data?.[0]?.price || 0;
   const userId = userData?.result?.id;
+  const user = userData?.result;
 
-  const handleCreateOrder = async () => {
+  // Parse address from jsonExt if available
+  const addressData = useMemo(() => {
+    if (!user?.jsonExt) return {};
+    try {
+      return JSON.parse(user.jsonExt) as {
+        province?: string;
+        city?: string;
+        postalCode?: string;
+        plaque?: string;
+        unit?: string;
+        address?: string;
+      };
+    } catch {
+      return {};
+    }
+  }, [user]);
+
+  // Initialize form data when modal opens or user data is available
+  const initializeFormData = () => {
+    const fullName = user
+      ? `${user.firstName || ""} ${user.lastName || ""}`.trim()
+      : "";
+    setFormData({
+      address1: addressData.address || "",
+      phone1: user?.phoneNumber || "",
+      postStateNumber: addressData.postalCode || "",
+      userFullname: fullName,
+      city: addressData.city || "",
+      description: "",
+    });
+  };
+
+  const handleOpenModal = () => {
     if (!token || !userId) {
       toast.error("لطفا ابتدا وارد حساب کاربری خود شوید");
       return;
@@ -75,28 +126,64 @@ function CartPage() {
       return;
     }
 
+    initializeFormData();
+    setIsModalOpen(true);
+  };
+
+  const handleCreateOrder = async () => {
+    if (!token || !userId) {
+      toast.error("لطفا ابتدا وارد حساب کاربری خود شوید");
+      return;
+    }
+
+    // Validate required fields
+    if (!formData.address1.trim()) {
+      toast.error("لطفا آدرس را وارد کنید");
+      return;
+    }
+    if (!formData.phone1.trim()) {
+      toast.error("لطفا شماره تلفن را وارد کنید");
+      return;
+    }
+    if (!formData.postStateNumber.trim()) {
+      toast.error("لطفا کد پستی را وارد کنید");
+      return;
+    }
+    if (!formData.userFullname.trim()) {
+      toast.error("لطفا نام و نام خانوادگی را وارد کنید");
+      return;
+    }
+    if (!formData.city.trim()) {
+      toast.error("لطفا شهر را وارد کنید");
+      return;
+    }
+
     setIsCreatingOrder(true);
 
     try {
-      const response = await createOrderWithWallet({
+      const response = await createHandyOrder({
         token,
-        userId,
-        status: 0,
         totalPrice,
+        address1: formData.address1,
+        phone1: formData.phone1,
+        postStateNumber: formData.postStateNumber,
+        status: 0,
+        userId,
+        userFullname: formData.userFullname,
+        city: formData.city,
+        description: formData.description,
         orderItems: cartItems,
       });
 
       if (response.status === 200) {
         await refetchBasket();
         toast.success("سفارش با موفقیت ثبت شد");
-        router.push("/cart/result?status=success", {
+        setIsModalOpen(false);
+        router.push("/dashboard/orders", {
           scroll: false
         });
       } else {
         toast.error("خطا در ثبت سفارش. لطفا دوباره تلاش کنید");
-        router.push("/cart/result?status=error", {
-          scroll: false
-        });
       }
     } catch (error) {
       console.error("Error creating order:", error);
@@ -136,9 +223,8 @@ function CartPage() {
             <div className="lg:col-span-2 space-y-6 lg:h-max">
               {cartItems.map((item) => (
                 <div
-                  key={`${item.productId}-${item.p1 || ""}-${item.r1 || ""}-${
-                    item.r2 || ""
-                  }-${item.r3 || ""}-${item.r4 || ""}-${item.r5 || ""}`}
+                  key={`${item.productId}-${item.p1 || ""}-${item.r1 || ""}-${item.r2 || ""
+                    }-${item.r3 || ""}-${item.r4 || ""}-${item.r5 || ""}`}
                   className="card sm:h-52 flex items-center max-sm:flex-col gap-3 space-y-0"
                 >
                   <div className="sm:h-full max-sm:w-full aspect-video bg-background rounded-lg relative overflow-hidden">
@@ -220,8 +306,8 @@ function CartPage() {
                         const masterPrice = item.masterPrice || 0;
                         const discountAmount = hasDiscount
                           ? Math.floor(
-                              (masterPrice * (item.discountPercent || 0)) / 100
-                            )
+                            (masterPrice * (item.discountPercent || 0)) / 100
+                          )
                           : 0;
                         const displayPrice = Math.max(
                           masterPrice - discountAmount,
@@ -313,17 +399,129 @@ function CartPage() {
 
               <Button
                 className="w-full mt-6"
-                onClick={handleCreateOrder}
-                disabled={isCreatingOrder || !userId}
+                onClick={handleOpenModal}
+                disabled={!userId}
               >
-                <span>
-                  {isCreatingOrder ? "در حال ثبت سفارش..." : "تایید و پرداخت"}
-                </span>
+                <span>تایید و پرداخت</span>
               </Button>
             </div>
           </div>
         )}
       </div>
+
+      <Dialog open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle>اطلاعات سفارش</DialogTitle>
+            <DialogDescription>
+              لطفا اطلاعات مورد نیاز برای ثبت سفارش را وارد کنید
+            </DialogDescription>
+          </DialogHeader>
+
+          <div className="space-y-4 mt-4">
+            <div>
+              <label htmlFor="userFullname" className="block mb-1.5">
+                نام و نام خانوادگی <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="userFullname"
+                value={formData.userFullname}
+                onChange={(e) =>
+                  setFormData({ ...formData, userFullname: e.target.value })
+                }
+                placeholder="نام و نام خانوادگی"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="phone1" className="block mb-1.5">
+                شماره تلفن <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="phone1"
+                value={formData.phone1}
+                onChange={(e) =>
+                  setFormData({ ...formData, phone1: e.target.value })
+                }
+                placeholder="شماره تلفن"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="city" className="block mb-1.5">
+                شهر <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="city"
+                value={formData.city}
+                onChange={(e) =>
+                  setFormData({ ...formData, city: e.target.value })
+                }
+                placeholder="شهر"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="address1" className="block mb-1.5">
+                آدرس <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="address1"
+                value={formData.address1}
+                onChange={(e) =>
+                  setFormData({ ...formData, address1: e.target.value })
+                }
+                placeholder="آدرس کامل"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="postStateNumber" className="block mb-1.5">
+                کد پستی <span className="text-destructive">*</span>
+              </label>
+              <Input
+                id="postStateNumber"
+                value={formData.postStateNumber}
+                onChange={(e) =>
+                  setFormData({ ...formData, postStateNumber: e.target.value })
+                }
+                placeholder="کد پستی"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="description" className="block mb-1.5">
+                توضیحات (اختیاری)
+              </label>
+              <textarea
+                id="description"
+                value={formData.description}
+                onChange={(e) =>
+                  setFormData({ ...formData, description: e.target.value })
+                }
+                placeholder="توضیحات اضافی"
+                className="w-full min-h-[100px] rounded-md border bg-transparent px-3 py-2 text-base shadow-xs transition-[color,box-shadow] outline-none focus-visible:ring-primary/20 hover:ring-primary/20 focus-visible:border-primary hover:border-primary focus-visible:placeholder:text-foreground ring-[3px] ring-transparent resize-none"
+              />
+            </div>
+          </div>
+
+          <DialogFooter>
+            <Button
+              variant="outline"
+              onClick={() => setIsModalOpen(false)}
+              disabled={isCreatingOrder}
+            >
+              انصراف
+            </Button>
+            <Button
+              onClick={handleCreateOrder}
+              disabled={isCreatingOrder}
+            >
+              {isCreatingOrder ? "در حال ثبت سفارش..." : "ثبت سفارش"}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </>
   );
 }

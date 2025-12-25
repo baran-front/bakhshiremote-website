@@ -10,7 +10,7 @@ import {
   ShoppingBagIcon,
   UserIcon,
   UserPlusIcon,
-  WalletIcon,
+  // WalletIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
 import { usePathname, useRouter } from "next/navigation";
@@ -39,12 +39,12 @@ const LINKS = [
     href: "/dashboard/orders",
     icon: <ShoppingBagIcon />,
   },
-  {
-    id: 5,
-    name: "کیف پول",
-    href: "/dashboard/wallet",
-    icon: <WalletIcon />,
-  },
+  // {
+  //   id: 5,
+  //   name: "کیف پول",
+  //   href: "/dashboard/wallet",
+  //   icon: <WalletIcon />,
+  // },
   {
     id: 6,
     name: "دعوت از دوستان",

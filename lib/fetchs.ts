@@ -532,6 +532,29 @@ export const createOrderWithWallet = ({
     }),
   });
 
+type CreateHandyOrderParamsT = {
+  token: string;
+  totalPrice: number;
+  address1: string;
+  phone1: string;
+  postStateNumber: string;
+  status: number;
+  userId: string;
+  userFullname: string;
+  city: string;
+  description: string;
+  orderItems: CartItemT[];
+};
+export const createHandyOrder = ({ token, ...params }: CreateHandyOrderParamsT) =>
+  safeFetch("/v1/orders", {
+    method: "POST",
+    headers: {
+      ...CommonHeaders.jsonApplicationType,
+      ...CommonHeaders.bearerToken(token),
+    },
+    body: JSON.stringify(params),
+  });
+
 export const getProductsPriceRange = () =>
   safeFetch<[{ max: number, min: number }]>("/v1/products/client/prefilter/1", {})
 
