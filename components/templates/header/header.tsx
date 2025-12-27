@@ -47,13 +47,15 @@ export function Header() {
           className="flex items-center gap-3 lg:pe-6 lg:border-e-2"
           href={"/"}
         >
-          <Image
-            width={50}
-            height={50}
-            alt={brand.name}
-            className="h-full w-auto"
-            src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
-          />
+          {theme ? (
+            <Image
+              width={50}
+              height={50}
+              alt={brand.name}
+              className="h-full w-auto"
+              src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
+            />
+          ) : null}
           <span className="max-sm:hidden">{brand.name}</span>
         </Link>
 
