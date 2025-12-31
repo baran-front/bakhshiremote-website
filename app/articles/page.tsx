@@ -41,7 +41,7 @@ async function ArticlesPage({ searchParams }: NextPageProps) {
     <>
       <Breadcrumbs links={[{ name: "اخبار و مقالات", href: "/articles" }]} />
 
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         <div className="flex items-center max-lg:flex-col gap-3 mt-6">
           <h6 className="heading lg:pe-6 lg:border-e-2">دسته بندی مقالات</h6>
 

@@ -2,13 +2,14 @@ import Link from "next/link";
 import { Button } from "../ui/button";
 import { Fragment } from "react/jsx-runtime";
 import { ChevronLeftIcon, HomeIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 function Breadcrumbs({ links }: { links: { name: string; href: string }[] }) {
   return (
-    <div className="wrapper mt-10 lg:mt-14">
+    <div className="wrapper mt-3 lg:mt-6">
       <div className="flex items-center overflow-x-auto gap-1">
         <Link href={"/"}>
-          <Button variant={"ghost"}>
+          <Button variant={"unstyled"} className="hover:text-primary">
             <HomeIcon />
             <span>صفحه اصلی</span>
           </Button>
@@ -19,10 +20,11 @@ function Breadcrumbs({ links }: { links: { name: string; href: string }[] }) {
             <Link href={item.href}>
               <Button
                 size={"sm"}
-                variant={"ghost"}
-                className={
-                  index + 1 === links.length ? "font-yekan-bakh-semi-bold" : ""
-                }
+                variant={"unstyled"}
+                className={cn(
+                  index + 1 === links.length ? "font-yekan-bakh-semi-bold" : "",
+                  "hover:text-primary"
+                )}
               >
                 <span>{item.name}</span>
               </Button>

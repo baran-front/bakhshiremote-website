@@ -13,7 +13,7 @@ import { mapSectionItemToProduct } from "@/lib/data";
 function Home({ carousel, categories, products, specialProducts, banners }: { carousel: PageSectionItemT[]; products: PageSectionItemT[]; categories: CategoryT[]; specialProducts: PageSectionT | undefined; banners: PageSectionItemT[]; }) {
   return (
     <>
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         <Carousel>
           {carousel.map((item) => (
             <SwiperSlide key={item.id} className="pb-16">
@@ -34,7 +34,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
         </Carousel>
       </div>
 
-      <div className="wrapper mt-24 lg:mt-40 flex items-center justify-center flex-col">
+      <div className="wrapper mt-12 lg:mt-24 flex items-center justify-center flex-col">
         <h1 className="heading">دسته بندی محصولات</h1>
         <Carousel
           breakpoints={{
@@ -69,7 +69,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
         </Carousel>
       </div>
 
-      <div className="wrapper mt-24 lg:mt-40">
+      <div className="wrapper mt-12 lg:mt-24">
         <div className="flex items-center gap-3">
           <h2 className="heading">جدید ترین محصولات</h2>
           <Link href={"/products"} className="mr-auto">

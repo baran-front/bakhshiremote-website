@@ -10,10 +10,10 @@ async function CartResultPage({ searchParams }: NextPageProps) {
   const sp = await searchParams;
   const { status } = sp;
   const isSuccess = status === "success";
-  
+
   return (
     <>
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         <div className="max-w-2xl flex flex-col justify-center items-center card space-y-6 mx-auto">
           <Image
             width={200}

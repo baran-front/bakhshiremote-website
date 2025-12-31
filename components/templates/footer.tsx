@@ -37,7 +37,7 @@ function Footer() {
     <footer className="wrapper mt-24 lg:mt-40 mb-6 lg:mb-8">
       <div className="bg-linear-to-bl from-secondary to-primary p-0.5 rounded-2xl">
         <div className="bg-card rounded-2xl p-9">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 border-b">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 pb-12 border-b">
             {links?.result?.data?.map((item) => (
               <div
                 key={item.id}
@@ -98,9 +98,9 @@ function Footer() {
               </Button>
             </div>
           </div>
-          <div className="flex justify-center items-center flex-col gap-3 mt-12">
+          <div className="flex justify-center items-center flex-col gap-6 mt-12">
             <Image width={58} height={56} alt={brand.name} src={currentTheme === "light" ? brand.logoImg.light : brand.logoImg.dark} />
-            <p dir="ltr">@{new Date().getFullYear()} وب سایت {brand.name}</p>
+            <p dir="ltr" className="text-center text-sm">@{new Date().getFullYear()} وب سایت {brand.name}</p>
             <div className="flex items-center gap-3">
               {socials?.result?.data?.map((item) => (
                 <Link

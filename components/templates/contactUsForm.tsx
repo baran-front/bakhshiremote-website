@@ -43,10 +43,10 @@ function ContactUsForm() {
   };
 
   return (
-    <div className="wrapper mt-10 lg:mt-14">
+    <div className="wrapper mt-3 lg:mt-6">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="card grid grid-cols-1 lg:grid-cols-2 gap-6"
+        className="card grid grid-cols-1 lg:grid-cols-2 gap-6 p-6"
       >
         <Image
           width={384}

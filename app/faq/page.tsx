@@ -22,7 +22,7 @@ async function FAQPage() {
     <>
       <Breadcrumbs links={[{ name: "سوالات متداول", href: "/faq" }]} />
 
-      <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-10 lg:mt-14">
+      <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3 lg:mt-6">
         <div className="flex flex-col justify-center max-lg:items-center">
           <h1 className="heading">سوالات متداول</h1>
           <p className="mt-3 typography max-lg:text-center">

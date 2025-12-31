@@ -38,9 +38,9 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
           { name: "اخبار و مقالات", href: "/articles" },
           { name: article.title, href: `/articles/${article.id}` },
         ]}
-      />  
+      />
 
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         <div className="grid gap-6 mt-6 grid-cols-1">
           <div className="flex items-center gap-3 flex-wrap justify-between">
             <h1 className="heading leading-relaxed">{article.title}</h1>

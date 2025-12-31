@@ -39,14 +39,14 @@ async function ProductDetailPage({ params }: NextPageProps) {
         ]}
       />
 
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         {productWithRelatedByCategory.result?.data.currentProduct && (
           <ProductDetail
             product={productWithRelatedByCategory.result?.data.currentProduct}
           />
         )}
 
-        <Tabs className="mt-10 lg:mt-14" defaultValue={"1"} dir="rtl">
+        <Tabs className="mt-3 lg:mt-6" defaultValue={"1"} dir="rtl">
           <TabsList>
             <TabsTrigger value="1">توضیحات</TabsTrigger>
             <TabsTrigger value="2">نظرات</TabsTrigger>
@@ -96,11 +96,10 @@ async function ProductDetailPage({ params }: NextPageProps) {
                           {[1, 2, 3, 4, 5].map((star) => (
                             <StarIcon
                               key={star}
-                              className={`size-4 ${
-                                item.rate && item.rate >= star
+                              className={`size-4 ${item.rate && item.rate >= star
                                   ? "text-yellow-500 fill-yellow-500"
                                   : ""
-                              }`}
+                                }`}
                             />
                           ))}
                         </div>
@@ -111,37 +110,37 @@ async function ProductDetailPage({ params }: NextPageProps) {
 
                       {item.children.length
                         ? item.children.map((childItem) => (
-                            <div
-                              key={childItem.id}
-                              className="pr-6 mr-6 mt-6 border-r-2 separator-border"
-                            >
-                              <div className="flex items-center gap-3">
-                                <Image
-                                  width={48}
-                                  height={48}
-                                  className="rounded-full"
-                                  alt={childItem.userFullName || ""}
-                                  src={
-                                    brand.apiBaseUrl +
-                                    (childItem.userThumbnail || "")
-                                  }
-                                />
-                                <div>
-                                  <p className="font-yekan-bakh-bold">
-                                    {childItem.userFullName}
-                                  </p>
-                                  <p className="text-sm opacity-50">
-                                    {new Date(
-                                      childItem.createdOn
-                                    ).toLocaleDateString("fa")}
-                                  </p>
-                                </div>
+                          <div
+                            key={childItem.id}
+                            className="pr-6 mr-6 mt-6 border-r-2 separator-border"
+                          >
+                            <div className="flex items-center gap-3">
+                              <Image
+                                width={48}
+                                height={48}
+                                className="rounded-full"
+                                alt={childItem.userFullName || ""}
+                                src={
+                                  brand.apiBaseUrl +
+                                  (childItem.userThumbnail || "")
+                                }
+                              />
+                              <div>
+                                <p className="font-yekan-bakh-bold">
+                                  {childItem.userFullName}
+                                </p>
+                                <p className="text-sm opacity-50">
+                                  {new Date(
+                                    childItem.createdOn
+                                  ).toLocaleDateString("fa")}
+                                </p>
                               </div>
-                              <p className="leading-relaxed mt-3">
-                                {childItem.title} {childItem.text}
-                              </p>
                             </div>
-                          ))
+                            <p className="leading-relaxed mt-3">
+                              {childItem.title} {childItem.text}
+                            </p>
+                          </div>
+                        ))
                         : null}
                     </div>
                   ))

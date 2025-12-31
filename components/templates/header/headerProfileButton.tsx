@@ -32,25 +32,25 @@ function HeaderProfileButton() {
       </PopoverTrigger>
       <PopoverContent className="w-80 space-y-3 [&_a]:block [&_button]:w-full [&_button]:justify-start [&_button]:gap-3" align="end">
         <Link className="max-lg:hidden!" href={"/dashboard/desk"}>
-          <Button variant={"ghost"}>
+          <Button variant={"ghostPrimary"}>
             <LayoutGridIcon />
             <span>داشبورد</span>
           </Button>
         </Link>
         <Link className="lg:hidden!" href={"/dashboard"}>
-          <Button variant={"ghost"}>
+          <Button variant={"ghostPrimary"}>
             <LayoutGridIcon />
             <span>داشبورد</span>
           </Button>
         </Link>
         <Link href={"/dashboard/favorites"}>
-          <Button variant={"ghost"}>
+          <Button variant={"ghostPrimary"}>
             <BookmarkIcon />
             <span>علاقه مندی ها</span>
           </Button>
         </Link>
         <Link href={"/cart"}>
-          <Button variant={"ghost"}>
+          <Button variant={"ghostPrimary"}>
             <ShoppingCartIcon />
             <span>سبد خرید</span>
           </Button>

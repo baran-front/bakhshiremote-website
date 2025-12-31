@@ -15,7 +15,7 @@ function AboutUsPage() {
     <>
       <Breadcrumbs links={[{ name: "درباره ما", href: "/about-us" }]} />
 
-      <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-10 lg:mt-14">
+      <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-3 mt-3 lg:mt-6">
         <div className="flex flex-col max-lg:items-center justify-center">
           <h1 className="heading">درباره {brand.name}</h1>
           <p className="typography opacity-75 mt-6">

@@ -196,7 +196,7 @@ function CartPage() {
     <>
       <Breadcrumbs links={[{ name: "سبد خرید", href: "/cart" }]} />
 
-      <div className="wrapper mt-10 lg:mt-14">
+      <div className="wrapper mt-3 lg:mt-6">
         <h1 className="heading mt-6">سبد خرید</h1>
 
         {!token ? (
