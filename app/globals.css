@@ -2,13 +2,13 @@
 @import "tw-animate-css";
 
 @font-face {
-  font-family: "yekan-bakh-medium";
+  font-family: "yekan-bakh";
   font-display: swap;
   src: url("/fonts/yekan-bakh/yekan-bakh-medium.ttf");
 }
 
 @font-face {
-  font-family: "yekan-bakh-semi-bold";
+  font-family: "yekan-bakh-bold";
   font-display: swap;
   src: url("/fonts/yekan-bakh/yekan-bakh-semi-bold.ttf");
 }
@@ -28,8 +28,8 @@
   --radius-2xl: calc(var(--radius) + 1rem);
 
   --font-*: initial;
-  --font-yekan-bakh-medium: "yekan-bakh-medium";
-  --font-yekan-bakh-semi-bold: "yekan-bakh-semi-bold";
+  --font-yekan-bakh: "yekan-bakh";
+  --font-yekan-bakh-bold: "yekan-bakh-bold";
 }
 
 :root {
@@ -46,7 +46,7 @@
     @apply border-foreground/10 outline-foreground/50;
   }
   body {
-    @apply bg-background text-foreground font-yekan-bakh-medium;
+    @apply bg-background text-foreground font-yekan-bakh;
   }
   button {
     @apply cursor-pointer;
@@ -58,7 +58,7 @@
 }
 
 @utility heading {
-  @apply font-yekan-bakh-semi-bold text-xl lg:text-3xl leading-normal!;
+  @apply font-yekan-bakh-bold text-xl lg:text-3xl leading-normal!;
 }
 
 @utility title {
@@ -147,7 +147,7 @@
   @apply text-right leading-relaxed space-y-3 text-foreground/80;
 
   h3 {
-    @apply font-yekan-bakh-semi-bold text-lg lg:text-xl mt-4 mb-2;
+    @apply font-yekan-bakh-bold text-lg lg:text-xl mt-4 mb-2;
   }
 
   p {
@@ -155,7 +155,7 @@
   }
 
   p strong {
-    @apply font-yekan-bakh-semi-bold;
+    @apply font-yekan-bakh-bold;
   }
 
   hr {

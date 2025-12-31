@@ -14,9 +14,10 @@ import HeaderProfileButton from "./headerProfileButton";
 import { getMenuLinksByGroup, getMe } from "@/lib/fetchs";
 import { getCookie } from "cookies-next/client";
 import { useTheme } from "next-themes";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 export function Header() {
-  const { theme, systemTheme, forcedTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
   const currentTheme = theme === "system" ? systemTheme : theme;
 
   const pathname = usePathname();
@@ -88,7 +89,18 @@ export function Header() {
 
         <HeaderSearchButton />
 
-        <div className="ps-3 lg:ps-6 border-s-2">
+        <div className="flex items-center gap-3 lg:gap-6 ps-3 lg:ps-6 border-s-2">
+          <Button
+            size="icon"
+            variant="outline"
+            aria-label="تغییر تم صفحه"
+            className="bg-background"
+            onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
+          >
+            <SunIcon className="not-dark:hidden" />
+            <MoonIcon className="dark:hidden" />
+          </Button>
+
           <HeaderMobileSheet
             handleActiveLink={handleActiveLink}
             links={links?.result?.data || []}
@@ -98,8 +110,8 @@ export function Header() {
             <HeaderProfileButton />
           ) : (
             <HeaderLoginButton
-              variant={"ghostPrimary"}
-              className="bg-background ring-2 ring-card dark:ring-black/50 hover:ring-primary max-lg:hidden"
+              variant={"outline"}
+              className="bg-background max-lg:hidden"
             />
           )}
         </div>

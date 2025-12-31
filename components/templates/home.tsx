@@ -18,7 +18,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
           {carousel.map((item) => (
             <SwiperSlide key={item.id} className="pb-16">
               <Link
-                className="w-full aspect-16/6 block"
+                className="w-full aspect-video lg:aspect-16/6 block"
                 href={`/products/${item.linkUrl}`}
               >
                 <Image
@@ -102,7 +102,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
       <div className="wrapper mt-24 lg:mt-40">
         <div className="bg-red-500 rounded-2xl p-6">
           <div className="flex items-center flex-wrap gap-3">
-            <h3 className="heading not-dark:text-background">
+            <h3 className="heading text-white">
               {specialProducts?.title}
             </h3>
             {/* <div className="px-3 py-1 bg-white flex items-center gap-3 text-black rounded-sm">
@@ -111,7 +111,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
           </div> */}
             <Link href={"/products"} className="mr-auto">
               <Button
-                className="border border-background dark:border-foreground not-dark:text-background"
+                className="border border-white text-white hover:bg-white hover:text-red-500"
                 variant="unstyled"
               >
                 همه
@@ -180,7 +180,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
       <div className="wrapper mt-24 lg:mt-40 grid grid-cols-1 lg:grid-cols-2 gap-3">
         {banners.map((item, index) => (
           <Link
-            className={`w-full aspect-16/6 rounded-2xl card-hover ${index === 0 ? "lg:col-span-2" : ""
+            className={`w-full aspect-video lg:aspect-16/6 rounded-2xl card-hover ${index === 0 ? "lg:col-span-2" : ""
               }`}
             href={`/products/${item.linkUrl}`}
             key={item.id}

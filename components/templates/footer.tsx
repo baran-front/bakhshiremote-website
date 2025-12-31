@@ -57,7 +57,7 @@ function Footer() {
                               {childItem.name}
                             </Button>
                           </Link>
-                        ) : <p className="text-sm">{childItem.name}</p>}
+                        ) : <p className="text-sm opacity-75">{childItem.name}</p>}
                       </li>
                     ))}
                   </ul>

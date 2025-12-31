@@ -29,6 +29,8 @@ function SelectSearchParamsFilter({
 
   const currentValue = searchParams?.get(searchParamsKey);
 
+  const isSearchable = options.length > 10;
+
   const handleChange = (value: string) => {
     const sp = new URLSearchParams(searchParams?.toString());
     sp.set(searchParamsKey, value);
@@ -46,7 +48,7 @@ function SelectSearchParamsFilter({
       <SelectTrigger {...props}>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
-      <SelectContent>
+      <SelectContent searchable={isSearchable}>
         <SelectGroup>
           {options.map((option) => (
             <SelectItem key={option.value} value={option.value}>

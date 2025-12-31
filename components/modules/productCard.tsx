@@ -56,15 +56,15 @@ function ProductCard({
             const displayPrice = Math.max(masterPrice - discountAmount, 0);
             return (
               <>
-                <span>
+                <span className="font-yekan-bakh-bold">
                   {displayPrice.toLocaleString("fa")} تومان
                 </span>
                 {hasDiscount && (
                   <>
                     <span className="bg-primary p-1 rounded text-xs text-foreground not-dark:text-background">
-                      {product.discountPercent}%
+                      {product.discountPercent} %
                     </span>
-                    <span className="text-foreground/60 line-through text-xs mr-auto">
+                    <span className="opacity-60 line-through text-xs mr-auto">
                       {masterPrice.toLocaleString("fa")} تومان
                     </span>
                   </>
@@ -76,7 +76,7 @@ function ProductCard({
       )}
       <Button
         variant={"unstyled"}
-        className="w-full bg-black/10 group-hover:bg-primary not-dark:group-hover:text-background shadow-lg shadow-transparent hover:shadow-primary/50"
+        className="w-full bg-black/10 group-hover:bg-primary group-hover:text-white shadow-lg shadow-transparent hover:shadow-primary/50"
       >
         <span>جزئیات</span>
         <ArrowLeftIcon />

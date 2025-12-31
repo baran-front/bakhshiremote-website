@@ -2,9 +2,20 @@
 
 import * as React from "react";
 import * as SelectPrimitive from "@radix-ui/react-select";
-import { CheckIcon, ChevronDownIcon, ChevronUpIcon } from "lucide-react";
+import { CheckIcon, ChevronDownIcon, ChevronUpIcon, SearchIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils";
+import { Input } from "@/components/ui/input";
+
+const SelectSearchContext = React.createContext<{
+  searchTerm: string;
+  setSearchTerm: (term: string) => void;
+} | null>(null);
+
+export const useSelectSearch = () => {
+  const context = React.useContext(SelectSearchContext);
+  return context;
+};
 
 function Select({
   ...props
@@ -55,33 +66,56 @@ function SelectContent({
   children,
   position = "popper",
   align = "center",
+  searchable,
   ...props
-}: React.ComponentProps<typeof SelectPrimitive.Content>) {
+}: React.ComponentProps<typeof SelectPrimitive.Content> & {
+  searchable?: boolean;
+}) {
+  const [searchTerm, setSearchTerm] = React.useState("");
+
+  // Reset search term when select closes
+  React.useEffect(() => {
+    const handleClose = () => {
+      setSearchTerm("");
+    };
+
+    // This will be called when the content unmounts (select closes)
+    return () => {
+      handleClose();
+    };
+  }, []);
+
   return (
     <SelectPrimitive.Portal>
       <SelectPrimitive.Content
         data-slot="select-content"
         className={cn(
-          "bg-card data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-2xl p-1.5 border shadow-md",
+          "bg-card data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-(--radix-select-content-available-height) min-w-[8rem] origin-(--radix-select-content-transform-origin) overflow-x-hidden overflow-y-auto rounded-xl p-1.5 border shadow-md",
           position === "popper" &&
-            "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
+          "data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1",
           className
         )}
         position={position}
         align={align}
+        onCloseAutoFocus={() => {
+          setSearchTerm("");
+        }}
         {...props}
       >
-        <SelectScrollUpButton />
-        <SelectPrimitive.Viewport
-          className={cn(
-            "p-1",
-            position === "popper" &&
+        <SelectSearchContext.Provider value={{ searchTerm, setSearchTerm }}>
+          {searchable && <SelectSearch />}
+          <SelectScrollUpButton />
+          <SelectPrimitive.Viewport
+            className={cn(
+              "p-1",
+              position === "popper" &&
               "h-[var(--radix-select-trigger-height)] w-full min-w-[var(--radix-select-trigger-width)] scroll-my-1"
-          )}
-        >
-          {children}
-        </SelectPrimitive.Viewport>
-        <SelectScrollDownButton />
+            )}
+          >
+            {children}
+          </SelectPrimitive.Viewport>
+          <SelectScrollDownButton />
+        </SelectSearchContext.Provider>
       </SelectPrimitive.Content>
     </SelectPrimitive.Portal>
   );
@@ -105,6 +139,33 @@ function SelectItem({
   children,
   ...props
 }: React.ComponentProps<typeof SelectPrimitive.Item>) {
+  const searchContext = useSelectSearch();
+
+  // Extract text content from children (handles both string and React nodes)
+  const getTextContent = (node: React.ReactNode): string => {
+    if (typeof node === "string" || typeof node === "number") {
+      return String(node);
+    }
+    if (Array.isArray(node)) {
+      return node.map(getTextContent).join("");
+    }
+    if (React.isValidElement(node)) {
+      const props = node.props as { children?: React.ReactNode };
+      if (props?.children) {
+        return getTextContent(props.children);
+      }
+    }
+    return "";
+  };
+
+  const itemText = getTextContent(children);
+  const shouldShow = !searchContext?.searchTerm ||
+    itemText.toLowerCase().includes(searchContext.searchTerm.toLowerCase());
+
+  if (!shouldShow) {
+    return null;
+  }
+
   return (
     <SelectPrimitive.Item
       data-slot="select-item"
@@ -173,6 +234,45 @@ function SelectScrollDownButton({
   );
 }
 
+function SelectSearch({
+  className,
+  placeholder = "جستجو...",
+  ...props
+}: React.ComponentProps<"input"> & {
+  placeholder?: string;
+}) {
+  const searchContext = useSelectSearch();
+
+  if (!searchContext) {
+    return null;
+  }
+
+  const { searchTerm, setSearchTerm } = searchContext;
+
+  return (
+    <div className="sticky top-0 z-10 mb-1.5 bg-card">
+      <div className="relative">
+        <SearchIcon className="absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
+        <Input
+          type="text"
+          placeholder={placeholder}
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className={cn("pr-9", className)}
+          onClick={(e) => e.stopPropagation()}
+          onKeyDown={(e) => {
+            e.stopPropagation();
+            if (e.key === "Escape") {
+              setSearchTerm("");
+            }
+          }}
+          {...props}
+        />
+      </div>
+    </div>
+  );
+}
+
 export {
   Select,
   SelectContent,
@@ -181,6 +281,7 @@ export {
   SelectLabel,
   SelectScrollDownButton,
   SelectScrollUpButton,
+  SelectSearch,
   SelectSeparator,
   SelectTrigger,
   SelectValue,
