@@ -5,7 +5,8 @@ import {
   getArticleCategories,
   getArticles,
 } from "@/lib/fetchs";
-import ArticlesCategoryTabs from "@/components/templates/articlesCategoryTabs";
+import SelectSearchParamsFilter from "@/components/modules/selectSearchParamsFilter";
+import SearchParamsSearch from "@/components/modules/searchParamsSearch";
 import SpPagination from "@/components/modules/spPagination";
 import ArticleCard from "@/components/modules/articleCard";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
@@ -20,7 +21,7 @@ async function ArticlesPage({ searchParams }: NextPageProps) {
   const [categories, articles] = await Promise.all([
     getArticleCategories(),
     getArticles({
-      blogPostCategoryId: category ? +category : null,
+      blogPostCategoryId: category && category !== "all" ? +category : null,
       keyword: search || "",
       pageNumber: pageNumber,
       pageSize: 10,
@@ -28,16 +29,33 @@ async function ArticlesPage({ searchParams }: NextPageProps) {
     }),
   ]);
 
+  const categoryOptions = [
+    { label: "همه مقالات", value: "all" },
+    ...(categories.result?.data || []).map((cat) => ({
+      label: cat.title,
+      value: cat.id.toString(),
+    })),
+  ];
+
   return (
     <>
       <Breadcrumbs links={[{ name: "اخبار و مقالات", href: "/articles" }]} />
 
       <div className="wrapper mt-10 lg:mt-14">
-        <div className="flex items-center max-lg:flex-col gap-6 mt-6">
+        <div className="flex items-center max-lg:flex-col gap-3 mt-6">
           <h6 className="heading lg:pe-6 lg:border-e-2">دسته بندی مقالات</h6>
-          {categories.result?.data ? (
-            <ArticlesCategoryTabs categories={categories.result.data} />
-          ) : null}
+
+          <SearchParamsSearch
+            className="w-full lg:w-96 max-w-full"
+            placeholder="جستجو مقالات..."
+          />
+
+          <SelectSearchParamsFilter
+            className="w-full lg:w-52 max-w-full"
+            searchParamsKey="category"
+            options={categoryOptions}
+            placeholder="دسته بندی..."
+          />
         </div>
 
         <div className="card-grid-wrapper mt-6">

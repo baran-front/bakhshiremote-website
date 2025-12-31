@@ -2,7 +2,7 @@
 
 import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger } from "@/components/ui/drawer";
 import { Button } from "../ui/button";
-import { FunnelIcon } from "lucide-react";
+import { FunnelIcon, XIcon } from "lucide-react";
 import SelectSearchParamsFilter from "../modules/selectSearchParamsFilter";
 import SearchParamsRangeSlider from "../modules/searchParamsRangeSlider";
 import ProductsRegionSelect from "./productsRegionSelect";
@@ -37,10 +37,15 @@ function ProductsMobileDrawer({ categories, sortOptions }: { sortOptions: { labe
         </div>
       </DrawerTrigger>
 
-      <DrawerContent>
+      <DrawerContent className="min-h-[75vh]">
         <div className="w-full">
           <DrawerHeader>
-            <DrawerTitle>فیلتر محصولات</DrawerTitle>
+            <div className="flex items-center justify-between">
+              <DrawerTitle>فیلتر محصولات</DrawerTitle>
+              <DrawerTrigger asChild>
+                <Button variant="outline" size={"icon"}><XIcon /></Button>
+              </DrawerTrigger>
+            </div>
           </DrawerHeader>
           <div className="p-3 space-y-3">
             <SelectSearchParamsFilter

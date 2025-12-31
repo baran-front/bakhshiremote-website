@@ -24,7 +24,7 @@ function SpPagination({
   totalPages,
   totalCount,
   pageSize,
-  windowSize = 5,
+  windowSize = 3,
   pageParamName = "pageNumber",
   className,
   ...props

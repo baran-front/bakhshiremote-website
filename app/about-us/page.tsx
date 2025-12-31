@@ -48,21 +48,21 @@ function AboutUsPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-3 font-yekan-bakh-semi-bold">
-          <div className="aspect-video card border border-primary shadow-2xl shadow-primary/10 flex items-center justify-center flex-col">
+          <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
             <span className="text-2xl lg:text-3xl text-primary">+۲۰،۰۰۰</span>
-            <span className="text-sm lg:text-base mt-3">دانش پذیر</span>
+            <span className="text-sm lg:text-base">دانش پذیر</span>
           </div>
-          <div className="aspect-video card border border-primary shadow-2xl shadow-primary/10 flex items-center justify-center flex-col">
+          <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
             <span className="text-2xl lg:text-3xl text-primary">۵۰٪</span>
-            <span className="text-sm lg:text-base mt-3">فروش بیشتر</span>
+            <span className="text-sm lg:text-base">فروش بیشتر</span>
           </div>
-          <div className="aspect-video card border border-primary shadow-2xl shadow-primary/10 flex items-center justify-center flex-col">
+          <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
             <span className="text-2xl lg:text-3xl text-primary">+۲۰،۰۰۰</span>
-            <span className="text-sm lg:text-base mt-3">دانش پذیر</span>
+            <span className="text-sm lg:text-base">دانش پذیر</span>
           </div>
-          <div className="aspect-video card border border-primary shadow-2xl shadow-primary/10 flex items-center justify-center flex-col">
+          <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
             <span className="text-2xl lg:text-3xl text-primary">۳۰۰</span>
-            <span className="text-sm lg:text-base mt-3">مدرس</span>
+            <span className="text-sm lg:text-base">مدرس</span>
           </div>
         </div>
       </div>
@@ -125,7 +125,7 @@ function AboutUsPage() {
             className="rounded-2xl w-full h-auto sticky top-26"
           />
           <div className="flex justify-center flex-col gap-6 max-lg:items-center">
-            <div className="card p-6 group">
+            <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
                 <p className="title">یکپارچگی در خدمات</p>
@@ -137,7 +137,7 @@ function AboutUsPage() {
               </p>
             </div>
 
-            <div className="card p-6 group">
+            <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
                 <p className="title">تمرکز بر رشد و برندینگ مدرسان</p>
@@ -150,7 +150,7 @@ function AboutUsPage() {
               </p>
             </div>
 
-            <div className="card p-6 group">
+            <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
                 <p className="title">نوآوری مستمر</p>
@@ -161,7 +161,7 @@ function AboutUsPage() {
               </p>
             </div>
 
-            <div className="card p-6 group">
+            <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
                 <p className="title"> ساده‌سازی فرایندهای مدیریتی</p>

@@ -19,7 +19,7 @@ function AccordionItem({
   return (
     <AccordionPrimitive.Item
       data-slot="accordion-item"
-      className={cn("bg-card rounded-lg p-3 max-h-max", className)}
+      className={cn("bg-card rounded-2xl p-6 max-h-max border-2 border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 data-[state=open]:border-primary data-[state=open]:shadow-primary/10", className)}
       {...props}
     />
   );
