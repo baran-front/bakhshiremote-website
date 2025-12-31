@@ -16,7 +16,8 @@ import { useTheme } from "next-themes";
 
 function Footer() {
   const pathname = usePathname();
-  const { theme, setTheme } = useTheme();
+  const { theme, systemTheme, setTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
 
   const { data: links } = useQuery({
     queryKey: ["links-by-footer"],
@@ -34,8 +35,8 @@ function Footer() {
 
   return (
     <footer className="wrapper mt-24 lg:mt-40 mb-6 lg:mb-8">
-      <div className="bg-linear-to-bl from-secondary to-primary p-0.5 rounded-lg">
-        <div className="bg-card rounded-lg p-9">
+      <div className="bg-linear-to-bl from-secondary to-primary p-0.5 rounded-2xl">
+        <div className="bg-card rounded-2xl p-9">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pb-12 border-b">
             {links?.result?.data?.map((item) => (
               <div
@@ -51,8 +52,7 @@ function Footer() {
 
                           <Link href={childItem.linkUrl || ""}>
                             <Button
-                              variant={"unstyled"}
-                              className="hover:underline"
+                              variant={"ghostPrimary"}
                             >
                               {childItem.name}
                             </Button>
@@ -91,7 +91,7 @@ function Footer() {
                 size="icon"
                 variant="outline"
                 aria-label="تغییر تم صفحه"
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}
               >
                 <SunIcon className="not-dark:hidden" />
                 <MoonIcon className="dark:hidden" />
@@ -99,7 +99,7 @@ function Footer() {
             </div>
           </div>
           <div className="flex justify-center items-center flex-col gap-3 mt-12">
-            <Image width={58} height={56} alt={brand.name} src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark} />
+            <Image width={58} height={56} alt={brand.name} src={currentTheme === "light" ? brand.logoImg.light : brand.logoImg.dark} />
             <p dir="ltr">@{new Date().getFullYear()} وب سایت {brand.name}</p>
             <div className="flex items-center gap-3">
               {socials?.result?.data?.map((item) => (

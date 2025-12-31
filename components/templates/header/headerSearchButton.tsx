@@ -107,8 +107,8 @@ function HeaderSearchButton() {
     <>
       <Button
         size={"icon"}
-        variant={"ghost"}
-        className="ring-4 ring-card dark:ring-black/50 inset-shadow-xs inset-shadow-card not-dark:inset-shadow-black/20 ms-auto border border-transparent hover:border-primary"
+        variant={"ghostPrimary"}
+        className="ring-2 ring-card dark:ring-black/50 bg-background ms-auto hover:ring-primary"
         onClick={() => setIsOpen(!isOpen)}
       >
         <SearchIcon />

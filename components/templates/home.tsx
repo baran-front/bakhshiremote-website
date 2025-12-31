@@ -25,7 +25,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
                   width={1471}
                   height={551}
                   alt={item.name || ""}
-                  className="rounded-lg size-full"
+                  className="rounded-2xl size-full"
                   src={brand.apiBaseUrl + (item.mediaPath || "")}
                 />
               </Link>
@@ -41,16 +41,19 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
             0: {
               slidesPerView: 2,
             },
-            1024: {
+            640: {
               slidesPerView: 4,
             },
+            1024: {
+              slidesPerView: 6,
+            },
           }}
-          className="max-lg:w-full lg:w-1/2 mt-6"
+          className="max-lg:w-full lg:w-2/3 mt-6"
         >
           {categories.map((category) => (
             <SwiperSlide key={category.id} className="pb-16">
               <Link className="group" href={`/products?category=${category.id}`}>
-                <div className="w-full aspect-square border group-hover:border-foreground transition-colors p-3 rounded-full flex items-center justify-center">
+                <div className="w-full aspect-square border-2 group-hover:border-primary transition-colors p-3 rounded-full flex items-center justify-center">
                   <Image
                     width={200}
                     height={200}
@@ -97,7 +100,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
       </div>
 
       <div className="wrapper mt-24 lg:mt-40">
-        <div className="bg-red-500 rounded-lg p-6">
+        <div className="bg-red-500 rounded-2xl p-6">
           <div className="flex items-center flex-wrap gap-3">
             <h3 className="heading not-dark:text-background">
               {specialProducts?.title}
@@ -177,7 +180,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
       <div className="wrapper mt-24 lg:mt-40 grid grid-cols-1 lg:grid-cols-2 gap-3">
         {banners.map((item, index) => (
           <Link
-            className={`w-full aspect-16/6 rounded-lg card-hover ${index === 0 ? "lg:col-span-2" : ""
+            className={`w-full aspect-16/6 rounded-2xl card-hover ${index === 0 ? "lg:col-span-2" : ""
               }`}
             href={`/products/${item.linkUrl}`}
             key={item.id}
@@ -187,7 +190,7 @@ function Home({ carousel, categories, products, specialProducts, banners }: { ca
               height={552}
               alt={item.name || ""}
               src={brand.apiBaseUrl + (item.mediaPath || "")}
-              className="rounded-lg size-full"
+              className="rounded-2xl size-full"
             />
           </Link>
         ))}

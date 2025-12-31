@@ -15,10 +15,11 @@ const buttonVariants = cva(
         soft: "bg-card text-card-foreground hover:bg-card/75",
         destructive:
           "bg-red-500 text-white hover:bg-red-500/90 focus-visible:ring-red-500/20 dark:focus-visible:ring-red-500/40 dark:bg-red-500/60",
-        outline: "border shadow-xs hover:bg-foreground/5",
+        outline: "border hover:border-primary hover:text-primary",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-card",
+        ghostPrimary: "hover:bg-primary/10 hover:text-primary",
         link: "text-primary underline-offset-4 hover:underline",
       },
       size: {

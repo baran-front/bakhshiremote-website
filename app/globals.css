@@ -21,10 +21,11 @@
   --color-card: var(--card);
   --color-secondary: var(--secondary);
   --color-primary: var(--primary);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 0.5rem);
+  --radius-md: calc(var(--radius) - 0.25rem);
   --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-xl: calc(var(--radius) + 0.5rem);
+  --radius-2xl: calc(var(--radius) + 1rem);
 
   --font-*: initial;
   --font-yekan-bakh-medium: "yekan-bakh-medium";
@@ -69,19 +70,17 @@
 }
 
 @utility unstyled-card {
-  @apply rounded-lg p-3 space-y-3;
+  @apply rounded-2xl p-3 space-y-3;
 }
 
 @utility card {
   @apply unstyled-card bg-card;
 }
 
-@utility card-hover {
-  @apply border border-transparent transition-all hover:border-primary shadow-lg shadow-transparent hover:shadow-primary/10;
-}
+@utility card-thumbnail {
+  @apply w-full aspect-video;
 
-@utility card-image {
-  @apply w-full aspect-video rounded-lg transition-colors;
+  border-radius: calc(var(--radius-2xl) - 0.75rem);
 }
 
 @utility card-flex-wrapper {
@@ -116,9 +115,9 @@
 .glow-blob-bg-gradient-radial {
   background: radial-gradient(
     160px 160px at center,
-    color-mix(in oklch, var(--glow-color, var(--foreground)), transparent 90%) 0%,
-    color-mix(in oklch, var(--glow-color, var(--foreground)), transparent 90%) 25%,
-    transparent 60%
+    var(--glow-color, var(--color-primary)) 0%,
+    color-mix(in oklch, var(--glow-color, var(--color-primary)), transparent 50%) 25%,
+    transparent 100%
   );
 }
 

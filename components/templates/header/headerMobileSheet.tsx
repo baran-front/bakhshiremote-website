@@ -54,7 +54,7 @@ function HeaderMobileSheet({
           <MenuIcon />
         </Button>
       </SheetTrigger>
-      <SheetContent className="p-3">
+      <SheetContent className="p-3" side="left">
         <SheetTitle className="sr-only">منوی اصلی</SheetTitle>
         <div className="flex items-center justify-between gap-3 pb-4 mb-3 border-b">
           <Image
@@ -63,7 +63,6 @@ function HeaderMobileSheet({
             alt={brand.name}
             src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
           />
-          <span>{brand.name}</span>
 
           <Button
             className="mr-auto"
@@ -101,41 +100,41 @@ function HeaderMobileSheet({
             </div>
 
             <Link className="block" href={"/dashboard"}>
-                          <Button
-              className={`w-full ${handleActiveLink("/dashboard/")
-                ? ""
-                : "border hover:text-primary hover:border-primary"
-                }`}
-              variant={
-                handleActiveLink("/dashboard/") ? "default" : "unstyled"
-              }
-            >
+              <Button
+                className={`w-full ${handleActiveLink("/dashboard/")
+                  ? ""
+                  : "border hover:text-primary hover:border-primary"
+                  }`}
+                variant={
+                  handleActiveLink("/dashboard/") ? "default" : "unstyled"
+                }
+              >
                 <span>داشبورد</span>
               </Button>
             </Link>
             <Link className="block" href={"/dashboard/favorites"}>
-                          <Button
-              className={`w-full ${handleActiveLink("/dashboard/favorites")
-                ? ""
-                : "border hover:text-primary hover:border-primary"
-                }`}
-              variant={
-                handleActiveLink("/dashboard/favorites") ? "default" : "unstyled"
-              }
-            >
+              <Button
+                className={`w-full ${handleActiveLink("/dashboard/favorites")
+                  ? ""
+                  : "border hover:text-primary hover:border-primary"
+                  }`}
+                variant={
+                  handleActiveLink("/dashboard/favorites") ? "default" : "unstyled"
+                }
+              >
                 <span>علاقه مندی ها</span>
               </Button>
             </Link>
             <Link className="block" href={"/cart"}>
-                          <Button
-              className={`w-full ${handleActiveLink("/cart")
-                ? ""
-                : "border hover:text-primary hover:border-primary"
-                }`}
-              variant={
-                handleActiveLink("/cart") ? "default" : "unstyled"
-              }
-            >
+              <Button
+                className={`w-full ${handleActiveLink("/cart")
+                  ? ""
+                  : "border hover:text-primary hover:border-primary"
+                  }`}
+                variant={
+                  handleActiveLink("/cart") ? "default" : "unstyled"
+                }
+              >
                 <span>سبد خرید</span>
               </Button>
             </Link>

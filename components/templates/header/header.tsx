@@ -16,7 +16,9 @@ import { getCookie } from "cookies-next/client";
 import { useTheme } from "next-themes";
 
 export function Header() {
-  const { theme } = useTheme();
+  const { theme, systemTheme, forcedTheme } = useTheme();
+  const currentTheme = theme === "system" ? systemTheme : theme;
+
   const pathname = usePathname();
   const { data: user } = useQuery({
     queryKey: ["user"],
@@ -47,13 +49,13 @@ export function Header() {
           className="flex items-center gap-3 lg:pe-6 lg:border-e-2"
           href={"/"}
         >
-          {theme ? (
+          {currentTheme ? (
             <Image
               width={50}
               height={50}
               alt={brand.name}
               className="h-full w-auto"
-              src={theme === "light" ? brand.logoImg.light : brand.logoImg.dark}
+              src={currentTheme === "light" ? brand.logoImg.light : brand.logoImg.dark}
             />
           ) : null}
           <span className="max-sm:hidden">{brand.name}</span>
@@ -72,12 +74,10 @@ export function Header() {
             <Link href={item.linkUrl || ""} key={item.name}>
               <Button
                 className={
-                  handleActiveLink(item.linkUrl || "")
-                    ? ""
-                    : "border border-transparent hover:border-primary"
+                  handleActiveLink(item.linkUrl || "") ? "shadow-md shadow-primary/20" : ""
                 }
                 variant={
-                  handleActiveLink(item.linkUrl || "") ? "default" : "unstyled"
+                  handleActiveLink(item.linkUrl || "") ? "default" : "ghostPrimary"
                 }
               >
                 {item.name}
@@ -98,8 +98,8 @@ export function Header() {
             <HeaderProfileButton />
           ) : (
             <HeaderLoginButton
-              variant={"ghost"}
-              className="ring-4 ring-card dark:ring-black/50 inset-shadow-xs inset-shadow-card not-dark:inset-shadow-black/20 border border-transparent hover:border-primary max-lg:hidden"
+              variant={"ghostPrimary"}
+              className="bg-background ring-2 ring-card dark:ring-black/50 hover:ring-primary max-lg:hidden"
             />
           )}
         </div>

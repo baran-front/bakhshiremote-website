@@ -13,7 +13,7 @@
     "light": {
       "background": "#FFFFFF",
       "foreground": "#231F20",
-      "card": "#efefef",
+      "card": "#f7f7f7",
       "primary": "#AF0C0F",
       "secondary": "#ffb282"
     },

@@ -19,7 +19,7 @@ function HeaderProfileButton() {
   return (
     <Popover>
       <PopoverTrigger asChild>
-        <button className="hidden lg:flex lg:items-center lg:gap-3 lg:hover:bg-card p-3 rounded-full">
+        <button className="hidden lg:flex lg:items-center lg:gap-3 lg:hover:bg-card p-3 rounded-full bg-background">
           <UserCircleIcon className="size-5" />
           <p className="text-sm lg:transition-colors hidden lg:flex lg:items-center gap-1.5">
             <span>

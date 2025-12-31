@@ -22,23 +22,21 @@ function ProductCard({
     <Link
       href={`/products/${product?.id}`}
       className={cn(
-        "card card-hover block",
-        isSpecial ? "bg-white text-black" : "",
+        "card card-hover block group",
+        isSpecial ? "bg-white text-black" : "hover:bg-transparent border-2 border-transparent transition-all hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/30",
         className
       )}
       {...p}
     >
-      <div className="w-full aspect-video rounded-lg bg-background relative">
-        <Image
-          width={373}
-          height={210}
-          alt={product?.name || ""}
-          className="size-full rounded-lg"
-          src={brand.apiBaseUrl + (product?.masterImage || "")}
-        />
-      </div>
+      <Image
+        width={373}
+        height={210}
+        alt={product?.name || ""}
+        className="card-thumbnail"
+        src={brand.apiBaseUrl + (product?.masterImage || "")}
+      />
       <div className="flex items-center justify-between">
-        <p>{product?.name}</p>
+        <p className="line-clamp-1">{product?.name}</p>
         {product && (
           <BookmarkProductButton
             variant={"unstyled"}
@@ -78,11 +76,7 @@ function ProductCard({
       )}
       <Button
         variant={"unstyled"}
-        className={`w-full shadow ${
-          isSpecial
-            ? "bg-black/10 hover:bg-black/15"
-            : "bg-foreground/10 hover:bg-foreground/15"
-        }`}
+        className="w-full bg-black/10 group-hover:bg-primary not-dark:group-hover:text-background shadow-lg shadow-transparent hover:shadow-primary/50"
       >
         <span>جزئیات</span>
         <ArrowLeftIcon />
