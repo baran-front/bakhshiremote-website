@@ -101,17 +101,13 @@ function DashboardSidebar({ className }: { className?: string }) {
               <Button
                 variant={"unstyled"}
                 className={cn(
-                  "w-full border border-transparent",
+                  "w-full",
                   pathname.endsWith(link.href)
-                    ? "bg-background border-primary"
-                    : "hover:bg-background group hover:border-primary"
+                    ? "bg-primary not-dark:text-background"
+                    : "border border-transparent hover:border-primary"
                 )}
               >
-                <span
-                  className={
-                    pathname.endsWith(link.href) ? "text-primary" : ""
-                  }
-                >
+                <span>
                   {link.icon}
                 </span>
                 <span>{link.name}</span>

@@ -1,7 +1,17 @@
 "use client";
 
-import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useRef, useEffect } from "react";
+import { cn } from "@/lib/utils";
+import { toggleVariants } from "@/components/ui/toggle";
+import { Button } from "@/components/ui/button";
+import type SwiperType from "swiper";
+
+import "swiper/css";
+import "swiper/css/navigation";
 
 function DashboardFavoritesTabs({
   categories,
@@ -11,6 +21,7 @@ function DashboardFavoritesTabs({
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const swiperRef = useRef<SwiperType | null>(null);
 
   const handleChange = (value: string) => {
     const sp = new URLSearchParams(searchParams?.toString());
@@ -20,22 +31,88 @@ function DashboardFavoritesTabs({
     });
   };
 
-  const activeCategory = searchParams?.get("category");
+  const activeCategory = searchParams?.get("category") || "all";
+
+  // Find the index of the active category
+  const allItems = [{ value: "all", label: "همه" }, ...categories];
+  const activeIndex = allItems.findIndex(item => item.value === activeCategory);
+
+  // Sync swiper slide when activeCategory changes
+  useEffect(() => {
+    if (swiperRef.current && activeIndex >= 0) {
+      swiperRef.current.slideTo(activeIndex);
+    }
+  }, [activeCategory, activeIndex]);
 
   return (
-    <ToggleGroup
-      type="single"
-      onValueChange={handleChange}
-      defaultValue={activeCategory || "all"}
-      className="w-full overflow-x-auto [&_button]:flex-1/4 [&_button]:min-w-max"
-    >
-      <ToggleGroupItem value="all">همه</ToggleGroupItem>
-      {categories.map((category) => (
-        <ToggleGroupItem key={category.value} value={category.value}>
-          {category.label}
-        </ToggleGroupItem>
-      ))}
-    </ToggleGroup>
+    <div className="relative w-full">
+      <div className="bg-card py-1.5 px-12 rounded-md rtl:flex-row-reverse">
+        <Swiper
+          modules={[Navigation]}
+          breakpoints={{
+            0: {
+              slidesPerView: 2
+            },
+            640: {
+              slidesPerView: 4
+            },
+            1024: {
+              slidesPerView: 6
+            }
+          }}
+          spaceBetween={6}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+            // Set initial slide
+            if (activeIndex >= 0) {
+              swiper.slideTo(activeIndex);
+            }
+          }}
+          className="w-full"
+        >
+          <SwiperSlide>
+            <Button
+              className="w-full"
+              onClick={() => handleChange("all")}
+              variant={activeCategory === "all" ? "default" : "ghostPrimary"}
+            >
+              همه
+            </Button>
+          </SwiperSlide>
+          {categories.map((category) => (
+            <SwiperSlide key={category.value}>
+              <Button
+                className="w-full"
+                onClick={() => handleChange(category.value)}
+                variant={activeCategory === category.value ? "default" : "ghostPrimary"}
+              >
+                {category.label}
+              </Button>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Navigation Buttons */}
+      <Button
+        size="icon"
+        variant="outline"
+        aria-label="قبلی"
+        onClick={() => swiperRef.current?.slidePrev()}
+        className="absolute right-1.5 top-1/2 -translate-y-1/2 z-10"
+      >
+        <ChevronRight />
+      </Button>
+      <Button
+        size="icon"
+        variant="outline"
+        aria-label="بعدی"
+        onClick={() => swiperRef.current?.slideNext()}
+        className="absolute left-1.5 top-1/2 -translate-y-1/2 z-10"
+      >
+        <ChevronLeft />
+      </Button>
+    </div>
   );
 }
 

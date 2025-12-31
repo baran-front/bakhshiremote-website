@@ -42,7 +42,7 @@ async function DashboardReferralPage() {
         </Link>
       </div>
 
-      <div className="card flex items-center max-md:flex-col gap-3 space-y-0">
+      <div className="card flex items-center max-md:flex-col gap-3 p-6 space-y-0">
         <div className="flex items-center gap-3">
           <UsersIcon className="size-10" />
           <div>

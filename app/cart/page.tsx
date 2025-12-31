@@ -383,16 +383,7 @@ function CartPage() {
                 </li>
               </ul>
 
-              <div className="py-3 my-6 border-y-2 flex items-center justify-between gap-3">
-                <p>موجودی کیف پول:</p>
-                <p className="font-yekan-bakh-semi-bold text-green-400">
-                  {isLoadingWalletTotal
-                    ? "در حال بارگذاری..."
-                    : `${walletTotal.toLocaleString("fa")} تومان`}
-                </p>
-              </div>
-
-              <p className="flex items-center justify-between">
+              <p className="flex items-center justify-between mt-9">
                 <span className="opacity-75">مبلغ نهایی</span>
                 <span>{totalPrice.toLocaleString("fa")} تومان</span>
               </p>
