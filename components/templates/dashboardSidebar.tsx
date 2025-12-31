@@ -130,11 +130,11 @@ function DashboardSidebar({ className }: { className?: string }) {
         </AlertDialogTrigger>
         <AlertDialogContent>
           <AlertDialogHeader>
-            <AlertDialogTitle>
+            <AlertDialogTitle className="text-center">
               آیا می خواهید از حساب کاربری خود خارج شوید؟
             </AlertDialogTitle>
           </AlertDialogHeader>
-          <AlertDialogFooter>
+          <AlertDialogFooter className="sm:justify-center">
             <AlertDialogCancel>انصراف</AlertDialogCancel>
             <AlertDialogAction
               onClick={() => {

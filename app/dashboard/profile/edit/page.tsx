@@ -370,70 +370,68 @@ function DashboardEditProfilePage() {
         </Link>
       </div>
 
-      <div className="lg:p-3 lg:border-2 lg:rounded-lg">
+      <div className="lg:p-6 lg:border-2 lg:rounded-2xl">
         <div className="flex items-center gap-3 my-6">
           <p className="text-xs opacity-50">تصویر پروفایل</p>
           <Separator className="flex-1" />
         </div>
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-4">
-            <label htmlFor="profileImage">تصویر پروفایل</label>
-            <label
-              htmlFor="profileImage"
-              className="flex flex-col items-center justify-center gap-3 mt-3 rounded-lg border-2 border-dashed border-foreground p-6 bg-card cursor-pointer hover:bg-card transition-colors relative size-52 overflow-hidden"
-            >
-              {previewImage ? (
-                <>
-                  <div className="absolute inset-0 rounded-lg overflow-hidden">
-                    <Image
-                      fill
-                      alt="Preview"
-                      src={previewImage}
-                      className="object-cover"
-                    />
-                  </div>
-                  {isUploadingImage && (
-                    <div className="absolute inset-0 bg-black/70 flex items-center justify-center rounded-lg z-20">
-                      <div className="text-center">
-                        <p className="text-sm font-medium">در حال آپلود...</p>
-                      </div>
-                    </div>
-                  )}
-                  <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg z-10">
+        <div className="w-full">
+          <label htmlFor="profileImage">تصویر پروفایل</label>
+          <label
+            htmlFor="profileImage"
+            className="flex flex-col items-center justify-center gap-3 mt-3 rounded-lg border-2 border-dashed border-foreground p-6 bg-card cursor-pointer hover:bg-card transition-colors relative w-full max-sm:aspect-square max-h-52 sm:size-52 overflow-hidden"
+          >
+            {previewImage ? (
+              <>
+                <div className="absolute inset-0 rounded-lg overflow-hidden">
+                  <Image
+                    fill
+                    alt="Preview"
+                    src={previewImage}
+                    className="object-cover"
+                  />
+                </div>
+                {isUploadingImage && (
+                  <div className="absolute inset-0 bg-black/70 flex items-center justify-center rounded-lg z-20">
                     <div className="text-center">
-                      <ImagePlusIcon className="mx-auto mb-2 size-8" />
-                      <p className="text-sm font-medium">تغییر تصویر</p>
+                      <p className="text-sm font-medium">در حال آپلود...</p>
                     </div>
                   </div>
-                </>
-              ) : (
-                <>
-                  <ImagePlusIcon className="size-12 opacity-50" />
-                  <p className="text-center">
-                    {isUploadingImage
-                      ? "در حال آپلود..."
-                      : "تصویر خود را آپلود کنید..."}
-                  </p>
-                  <p className="text-yellow-100 text-sm text-center">
-                    حداکثر ۲ مگابایت، فرمت های رایج
-                  </p>
-                </>
-              )}
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                id="profileImage"
-                onChange={handleFileChange}
-                disabled={isUploadingImage}
-              />
-            </label>
-            {errors.profileImage && (
-              <p className="text-red-500 text-sm mt-1">
-                {errors.profileImage.message}
-              </p>
+                )}
+                <div className="absolute inset-0 bg-black/50 opacity-0 hover:opacity-100 transition-opacity flex items-center justify-center rounded-lg z-10">
+                  <div className="text-center">
+                    <ImagePlusIcon className="mx-auto mb-2 size-8" />
+                    <p className="text-sm font-medium">تغییر تصویر</p>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <>
+                <ImagePlusIcon className="size-12 opacity-50" />
+                <p className="text-center">
+                  {isUploadingImage
+                    ? "در حال آپلود..."
+                    : "تصویر خود را آپلود کنید..."}
+                </p>
+                <p className="text-yellow-100 text-sm text-center">
+                  حداکثر ۲ مگابایت، فرمت های رایج
+                </p>
+              </>
             )}
-          </div>
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              id="profileImage"
+              onChange={handleFileChange}
+              disabled={isUploadingImage}
+            />
+          </label>
+          {errors.profileImage && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.profileImage.message}
+            </p>
+          )}
         </div>
 
         <div className="flex items-center gap-3 my-6">
@@ -748,7 +746,7 @@ function DashboardEditProfilePage() {
           </div>
         </div>
 
-        <div className="flex items-center max-sm:flex-col-reverse justify-end gap-2 mt-8">
+        <div className="flex items-center max-sm:flex-col-reverse justify-end gap-2 mt-5 max-lg:sticky max-lg:bottom-3 bg-background p-3 rounded-2xl">
           <Link className="max-sm:w-full" href={"/dashboard/profile"}>
             <Button className="max-sm:w-full" variant="outline" type="button">
               <XIcon />

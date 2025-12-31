@@ -68,7 +68,7 @@ async function DashboardProfilePage() {
         </Link>
       </div>
 
-      <div className="lg:p-3 lg:border-2 lg:rounded-lg">
+      <div className="lg:p-6 lg:border-2 lg:rounded-2xl">
         <div className="flex items-center gap-3">
           <div className="size-16 rounded-full bg-card flex items-center justify-center overflow-hidden">
             {user?.imageUrl ? (
@@ -163,7 +163,7 @@ async function DashboardProfilePage() {
           <div className="col-span-12 md:col-span-4">{user?.sheba || "-"}</div>
         </div>
 
-        <div className="flex items-center justify-end mt-12">
+        <div className="flex items-center justify-end mt-12 max-lg:sticky max-lg:bottom-3">
           <Link className="max-sm:w-full" href={"/dashboard/profile/edit"}>
             <Button className="max-sm:w-full">تغییر اطلاعات</Button>
           </Link>

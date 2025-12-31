@@ -115,7 +115,7 @@ function DashboardNewTicketPage() {
 
   return (
     <>
-      <div className="card flex items-center space-y-0 justify-between gap-3 mb-6 lg:hidden">
+      <div className="card flex items-center space-y-0 justify-between gap-6 mb-6 lg:hidden">
         <h1 className="title">ثبت تیکت جدید</h1>
         <Link href={"/dashboard/support"}>
           <Button variant={"outline"} size={"icon"}>
@@ -179,7 +179,7 @@ function DashboardNewTicketPage() {
           </div>
           <div>
             <label htmlFor="priority">
-              الویت پیام <span className="text-red-500">*</span>
+              اولویت پیام <span className="text-red-500">*</span>
             </label>
             <Controller
               control={control}
@@ -218,7 +218,7 @@ function DashboardNewTicketPage() {
               placeholder="بنویسید..."
               {...register("message")}
             />
-            <InputGroupAddon align="inline-end">
+            <InputGroupAddon>
               <MessageSquareTextIcon />
             </InputGroupAddon>
           </InputGroup>
@@ -229,7 +229,7 @@ function DashboardNewTicketPage() {
           )}
         </div>
 
-        <div className="flex items-center max-sm:flex-col-reverse gap-3 mt-6">
+        <div className="flex items-center justify-end max-sm:flex-col-reverse gap-3 mt-6">
           <Link className="max-sm:w-full" href={"/dashboard/support"}>
             <Button className="max-sm:w-full" type="button" variant="outline">
               <XIcon />

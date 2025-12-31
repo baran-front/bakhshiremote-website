@@ -67,7 +67,7 @@ async function DashboardFavoritesPage({ searchParams }: NextPageProps) {
             src={notifyImg}
             alt="علاقه مندی ها خالی است"
           />
-          <p className="title">علاقه مندی ها خالی است</p>
+          <p className="title -translate-y-6">علاقه مندی ها خالی است</p>
         </div>
       ) : (
         <div className="card-grid-wrapper mt-6">
