@@ -117,11 +117,10 @@ function HeaderSearchButton() {
       {createPortal(
         <>
           <div
-            className={`fixed inset-0 overflow-y-auto z-50 bg-background/50 backdrop-blur-md transition-all ${
-              isOpen
-                ? ""
-                : "opacity-0 invisible pointer-events-none translate-y-3"
-            }`}
+            className={`fixed inset-0 overflow-y-auto z-50 bg-background/50 backdrop-blur-md transition-all ${isOpen
+              ? ""
+              : "opacity-0 invisible pointer-events-none translate-y-3"
+              }`}
           >
             <div className="wrapper pt-6 lg:pt-8 sticky top-0 bg-background pb-3 z-10">
               <div className="flex items-center gap-3">
@@ -140,10 +139,7 @@ function HeaderSearchButton() {
                     value={keyword}
                     onChange={(e) => setKeyword(e.target.value)}
                   />
-                  <InputGroupButton
-                    className="ring-2 ring-card dark:ring-black/50 inset-shadow-xs inset-shadow-card border border-transparent hover:border-primary"
-                    variant={"ghost"}
-                  >
+                  <InputGroupButton variant={"ghost"}>
                     <SearchIcon />
                   </InputGroupButton>
                 </InputGroup>
@@ -162,16 +158,16 @@ function HeaderSearchButton() {
 
                 <TabsContent value="products">
                   {!keyword.trim() ? (
-                    <p className="heading text-center leading-relaxed mt-24 lg:mt-40">
+                    <p className="heading text-center leading-relaxed mt-3 lg:mt-6">
                       جستجوی محصولات {brand.name}
                     </p>
                   ) : isProductsLoadingState ? (
-                    <p className="heading text-center leading-relaxed mt-24 lg:mt-40 animate-pulse">
+                    <p className="heading text-center leading-relaxed mt-3 lg:mt-6 animate-pulse">
                       درحال جستجو...
                     </p>
                   ) : !hasProducts ? (
                     <div className="flex justify-center items-center flex-col gap-6">
-                      <p className="heading text-center leading-relaxed mt-24 lg:mt-40">
+                      <p className="heading text-center leading-relaxed mt-3 lg:mt-6">
                         محصولی یافت نشد :(
                       </p>
                       <Image
@@ -196,16 +192,16 @@ function HeaderSearchButton() {
 
                 <TabsContent value="articles">
                   {!keyword.trim() ? (
-                    <p className="heading text-center leading-relaxed mt-24 lg:mt-40">
+                    <p className="heading text-center leading-relaxed mt-3 lg:mt-6">
                       جستجوی مقالات {brand.name}
                     </p>
                   ) : isArticlesLoadingState ? (
-                    <p className="heading text-center leading-relaxed mt-24 lg:mt-40 animate-pulse">
+                    <p className="heading text-center leading-relaxed mt-3 lg:mt-6 animate-pulse">
                       درحال جستجو...
                     </p>
                   ) : !hasArticles ? (
                     <div className="flex justify-center items-center flex-col gap-6">
-                      <p className="heading text-center leading-relaxed mt-24 lg:mt-40">
+                      <p className="heading text-center leading-relaxed mt-3 lg:mt-6">
                         مقاله ای یافت نشد :(
                       </p>
                       <Image
