@@ -23,12 +23,12 @@ import {
   PaginationNext,
 } from "@/components/ui/pagination";
 import Link from "next/link";
-import { getCookie } from "cookies-next";
 import { getMe } from "@/lib/fetchs";
 import SetRepresentativeButton from "@/components/templates/setRepresentativeButton";
+import { cookies } from "next/headers";
 
 async function DashboardReferralPage() {
-  const token = (await getCookie("token")) || "";
+  const token = (await cookies()).get("token")?.value || "";
   const user = await getMe({ token });
 
   return (
