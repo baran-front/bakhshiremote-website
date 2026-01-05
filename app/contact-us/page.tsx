@@ -4,6 +4,7 @@ import { brand } from "@/brand";
 import ContactUsForm from "@/components/templates/contactUsForm";
 import { getMenuLinksByGroup } from "@/lib/fetchs";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
+import Faq from "@/components/templates/faq";
 
 async function ContactUsPage() {
   const contactUs = await getMenuLinksByGroup({ groupnames: "contact-us" });
@@ -17,11 +18,10 @@ async function ContactUsPage() {
       <div className="wrapper f-center flex-col mt-24 lg:mt-40">
         <h2 className="heading text-center">
           ارتباط با ما{" "}
-          <span className="text-primary">تضمین اینده کسب و کار</span> شماست...
+          <span className="text-primary">تضمین ایمنی کسب و کار</span> شماست...
         </h2>
         <p className="mt-6 text-center">
-          اجازه دهید با راهکارهای تخصصی و پشتیبانی دلسوزانه، مسیر موفقیت شما را
-          هموار کنیم
+          هدف ما ایجاد محیطی مطمئن برای کاربران و اعتماد بلندمدت به خدمات و محصولاتمان است.
         </p>
         <div className="grid grid-cols-2 lg:grid-cols-4 mt-6 gap-3">
           {contactUs.result?.data?.map((item) => (
@@ -41,6 +41,8 @@ async function ContactUsPage() {
           ))}
         </div>
       </div>
+
+      <Faq />
     </>
   );
 }

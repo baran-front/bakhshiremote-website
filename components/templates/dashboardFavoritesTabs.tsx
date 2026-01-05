@@ -5,8 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { toggleVariants } from "@/components/ui/toggle";
 import { Button } from "@/components/ui/button";
 import type SwiperType from "swiper";
 

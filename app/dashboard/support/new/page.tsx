@@ -115,7 +115,7 @@ function DashboardNewTicketPage() {
 
   return (
     <>
-      <div className="card flex items-center space-y-0 justify-between gap-6 mb-6 lg:hidden">
+      <div className="card flex items-center space-y-0 justify-between gap-3 mb-6 lg:hidden">
         <h1 className="title">ثبت تیکت جدید</h1>
         <Link href={"/dashboard/support"}>
           <Button variant={"outline"} size={"icon"}>
@@ -126,7 +126,7 @@ function DashboardNewTicketPage() {
 
       <h1 className="heading max-lg:hidden">ثبت تیکت جدید</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="grid grid-cols-1 sm:grid-cols-3 mt-6 gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-3 mt-6 gap-6">
           <div>
             <label htmlFor="subject">
               موضوع درخواست <span className="text-red-500">*</span>
@@ -212,7 +212,7 @@ function DashboardNewTicketPage() {
             )}
           </div>
         </div>
-        <div className="mt-3">
+        <div className="mt-6">
           <InputGroup>
             <InputGroupTextarea
               placeholder="بنویسید..."

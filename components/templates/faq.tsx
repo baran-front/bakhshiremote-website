@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { getFaqs } from "@/lib/fetchs";
+import { brand } from "@/brand";
 
 async function Faq() {
   const faqs = await getFaqs({
@@ -23,22 +24,19 @@ async function Faq() {
     <div className="wrapper grid grid-cols-1 lg:grid-cols-2 gap-6 mt-24 lg:mt-40">
       <div>
         <h6 className="heading max-lg:text-center">
-          سوالات متداول راهنمای جامع فعالیت در دنیای گیم و دیجیتال
+          سوالات متداول، راهنمای جامع {brand.name}
         </h6>
         <p className="typography mt-6 max-lg:text-center">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-          استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
-          ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و
-          کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی
-          در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می
-          طلبد.
+          در این بخش به سوالاتی پاسخ داده‌ایم که معمولاً قبل از خرید یا استفاده برای کاربران پیش می‌آید.
+          هدف ما شفاف‌سازی، صرفه‌جویی در زمان شما و جلوگیری از سردرگمی‌های رایج است.
+          اگر پاسخ سوالتان را اینجا پیدا کردید، یعنی کارمان را درست انجام داده‌ایم.
         </p>
         <Image
-          src={faqImg}
           alt="faq"
-          width={447}
-          height={377}
-          className="w-full lg:w-3/4 mt-6"
+          width={256}
+          height={256}
+          src={faqImg}
+          className="w-full max-w-[256px] mx-auto lg:w-3/4 mt-6"
         />
       </div>
 

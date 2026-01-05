@@ -9,6 +9,7 @@ import aboutUsOurAbilitiesImg from "@/public/images/about-us_our-abilities.png";
 import Socials from "@/components/templates/socials";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
 import { brand } from "@/brand";
+import Faq from "@/components/templates/faq";
 
 function AboutUsPage() {
   return (
@@ -19,15 +20,15 @@ function AboutUsPage() {
         <div className="flex flex-col max-lg:items-center justify-center">
           <h1 className="heading">درباره {brand.name}</h1>
           <p className="typography opacity-75 mt-6">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-            است.
+            ما در این وب‌سایت روی ارائه راهکارهای مطمئن در حوزه ریموت و قفل‌های ایمنی تمرکز کرده‌ایم، چون امنیت شوخی‌بردار نیست.
+            هدف ما فراهم کردن محصولاتی با کیفیت، کاربری ساده و دوام بالا برای استفاده روزمره است.
+            با تکیه بر تجربه و بررسی دقیق محصولات، تلاش می‌کنیم انتخابی آگاهانه و بدون دردسر برای شما بسازیم.
+            اینجا قرار نیست اغراق بفروشیم، فقط امنیتی که واقعاً کار می‌کند.
           </p>
         </div>
         <Image
-          width={616}
-          height={393}
+          width={300}
+          height={300}
           src={aboutUsImg}
           alt={`درباره ${brand.name}`}
           className="max-lg:row-start-1 max-w-full mx-auto"
@@ -38,31 +39,29 @@ function AboutUsPage() {
         <div className="flex justify-center flex-col max-lg:items-center col-span-2">
           <h1 className="heading">داستان ما</h1>
           <p className="mt-6 typography opacity-75 text-center lg:text-justify">
-            هر داستان موفقی از یک چالش آغاز می‌شود. در میان دغدغه‌های روزمره‌ی
-            مدیریت کلاس‌ها، پیگیری پیشرفت دانش‌آموزان و هماهنگی ابزارهای مختلف
-            آموزشی، مدرسان با مشکلات فراوانی روبرو شدند. ما تصمیم گرفتیم تا با
-            خلق یک سامانه جامع، این چالش‌ها را از ریشه برطرف کنیم. ویرالرن از
-            نیاز واقعی به یک بستر یکپارچه متولد شد؛ بسترهایی که هم زمان کارایی
-            مدیریتی و کیفیت یادگیری را افزایش دهد.
+            داستان ما از جایی شروع شد که فهمیدیم امنیت نباید پیچیده، گران یا نمایشی باشد.
+            با تمرکز روی ریموت‌ها و قفل‌های ایمنی، تصمیم گرفتیم راهکارهایی ارائه دهیم که واقعاً قابل اعتماد باشند.
+            مسیرمان با آزمون، بررسی و انتخاب وسواس‌گونه محصولات شکل گرفت، نه شعارهای توخالی.
+            امروز این وب‌سایت نتیجه همان وسواس است؛ امنیت ساده، کاربردی و بی‌دردسر.
           </p>
         </div>
 
         <div className="grid grid-cols-2 gap-3 font-yekan-bakh-semi-bold">
           <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
-            <span className="text-2xl lg:text-3xl text-primary">+۲۰،۰۰۰</span>
-            <span className="text-sm lg:text-base">دانش پذیر</span>
+            <span className="text-2xl lg:text-3xl text-primary">+1000</span>
+            <span className="text-sm lg:text-base">محصول</span>
           </div>
           <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
-            <span className="text-2xl lg:text-3xl text-primary">۵۰٪</span>
-            <span className="text-sm lg:text-base">فروش بیشتر</span>
+            <span className="text-2xl lg:text-3xl text-primary">100%</span>
+            <span className="text-sm lg:text-base">امنیت بیشتر</span>
           </div>
           <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
-            <span className="text-2xl lg:text-3xl text-primary">+۲۰،۰۰۰</span>
-            <span className="text-sm lg:text-base">دانش پذیر</span>
+            <span className="text-2xl lg:text-3xl text-primary">+10</span>
+            <span className="text-sm lg:text-base">دسته بندی مختلف</span>
           </div>
           <div className="aspect-video card border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10 flex items-center justify-center flex-col">
-            <span className="text-2xl lg:text-3xl text-primary">۳۰۰</span>
-            <span className="text-sm lg:text-base">مدرس</span>
+            <span className="text-2xl lg:text-3xl text-primary">+5</span>
+            <span className="text-sm lg:text-base">سال تجربه</span>
           </div>
         </div>
       </div>
@@ -78,15 +77,10 @@ function AboutUsPage() {
         <div className="flex justify-center flex-col max-lg:items-center">
           <h2 className="heading">ماموریت ما</h2>
           <p className="mt-6 typography opacity-75 text-center lg:text-justify">
-            ما در ویرالرن بر این باوریم که:
-            {'"'}ما معتقدیم تدریس تدریس به عنوان یک امر مقدس، باید بهینه و
-            کارآمد باشد و این امر مستلزم استفاده از ابزارهای هوشمند است. این
-            اعتقاد، ما را به خلق ویرالرن هدایت کرد.{'"'}
-            ماموریت ما ایجاد فضایی است که در آن مدرسان بتوانند با استفاده از
-            امکانات پیشرفته، به‌سادگی کلاس‌های خود را مدیریت کرده و دانش‌آموزان
-            را در مسیر یادگیری همراهی کنند. از طراحی دوره‌های آموزشی گرفته تا
-            ارزیابی پیشرفت و مدیریت مالی، همه چیز در یک محیط منسجم و امن ارائه
-            می‌شود.
+            ماموریت ما ارائه راهکارهای امن، قابل اعتماد و ساده در حوزه ریموت و قفل‌های ایمنی است.
+            ما تلاش می‌کنیم با انتخاب محصولات باکیفیت و کاربردی، امنیت را برای همه دسترس‌پذیر کنیم.
+            تمرکز ما بر رضایت واقعی کاربر، کاهش ریسک و افزایش آرامش خاطر در استفاده روزمره است.
+            هدف نهایی ما اعتمادسازی بلندمدت است، نه فروش مقطعی و پر سر و صدا.
           </p>
         </div>
       </div>
@@ -95,14 +89,10 @@ function AboutUsPage() {
         <div className="flex justify-center flex-col max-lg:items-center">
           <h2 className="heading">ویژگی‌های منحصربه‌فرد ما</h2>
           <p className="mt-6 typography opacity-75 text-center lg:text-justify">
-            یکپارچگی کامل: تمامی ابزارهای مورد نیاز برای مدیریت آموزشی در یک
-            بستر جمع‌آوری شده‌اند.
-            سفارشی‌سازی حرفه‌ای: امکان ایجاد تجربه کاربری شخصی‌سازی‌شده مطابق با
-            نیاز هر برند.
-            تکنولوژی به‌روز: استفاده از فناوری‌های پیشرفته نظیر گیمیفیکیشن،
-            آزمون‌های هوشمند و ابزارهای تعامل زنده.
-            امنیت و پشتیبانی: تضمین حفظ حقوق و کپی‌رایت مدرسان و ارائه پشتیبانی
-            مداوم.
+            ما روی کیفیت واقعی تمرکز می‌کنیم، نه مشخصات اغراق‌شده روی کاغذ.
+            محصولات قبل از عرضه از نظر امنیت، دوام و کارایی بررسی می‌شوند.
+            پشتیبانی شفاف و پاسخ‌گو بخشی از تعهد ماست، نه یک گزینه اضافی.
+            سادگی در انتخاب و استفاده، چیزی است که ما را از بقیه جدا می‌کند.
           </p>
         </div>
         <Image
@@ -131,22 +121,23 @@ function AboutUsPage() {
                 <p className="title">یکپارچگی در خدمات</p>
               </div>
               <p className="mt-3 typography opacity-75 text-center lg:text-justify">
-                ویرالرن متعهد است تمام ابزارهای مورد نیاز مدرسان و دانش پذیران
-                را در یک بستر یکپارچه و هماهنگ ارائه دهد تا بهره‌وری آن‌ها
-                افزایش یابد و پراکندگی ذهنی آنها از بین برود.
+                یکپارچگی در خدمات یعنی از لحظه انتخاب محصول تا پشتیبانی پس از خرید، همه‌چیز هماهنگ و بدون تناقض باشد.
+                ما تلاش می‌کنیم اطلاعات، فروش و خدمات پس از فروش در یک مسیر مشخص و شفاف حرکت کنند.
+                این رویکرد باعث می‌شود کاربر سردرگم نشود و تجربه‌ای قابل اعتماد داشته باشد.
+                کمتر قول می‌دهیم، اما همان را یکدست و درست اجرا می‌کنیم.
               </p>
             </div>
 
             <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
-                <p className="title">تمرکز بر رشد و برندینگ مدرسان</p>
+                <p className="title">تمرکز بر امنیت</p>
               </div>
               <p className="mt-3 typography opacity-75 text-center lg:text-justify">
-                ویرالرن به‌عنوان یک ERP آموزشی، به مدرسان کمک می‌کند تا علاوه بر
-                تدریس، کسب و کار خود را مدیریت کنند و برند شخصی خود را بسازند و
-                رشد پایدار داشته باشند. ویرالرن متعهد است که مدیریت دوره‌ها،
-                تعاملات، فروش و بازاریابی را برای مدرسان آسان‌تر و کارآمدتر کند.
+                تمرکز بر امنیت برای ما یک شعار نیست، اصل ماجراست.
+                هر ریموت و قفل ایمنی با معیارهای سخت‌گیرانه از نظر کدگذاری، دوام و عملکرد بررسی می‌شود.
+                هدف ما کاهش ریسک دسترسی غیرمجاز و افزایش آرامش خاطر کاربران است.
+                اگر محصولی واقعاً امن نباشد، جایی در انتخاب‌های ما ندارد.
               </p>
             </div>
 
@@ -156,19 +147,23 @@ function AboutUsPage() {
                 <p className="title">نوآوری مستمر</p>
               </div>
               <p className="mt-3 typography opacity-75 text-center lg:text-justify">
-                ویرالرن همواره در حال طراحی و توسعه ابزارهای نوآورانه برای پاسخ
-                به چالش‌های آموزشی و بهبود کیفیت خدمات است.
+                نوآوری برای ما یک توقف‌ناپذیر است، نه یک پروژه کوتاه‌مدت.
+                همیشه دنبال روش‌ها و تکنولوژی‌های جدید هستیم تا امنیت و راحتی کاربران را ارتقا دهیم.
+                محصولات و خدمات ما به‌طور مستمر بررسی و بهبود می‌شوند تا استانداردهای روز را رعایت کنند.
+                هدف نهایی ارائه تجربه‌ای به‌روز، کارآمد و بدون دغدغه است.
               </p>
             </div>
 
             <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">
               <div className="flex items-center gap-3">
                 <StarIcon className="text-primary group-hover:fill-primary size-7" />
-                <p className="title"> ساده‌سازی فرایندهای مدیریتی</p>
+                <p className="title">سهولت استفاده</p>
               </div>
               <p className="mt-3 typography opacity-75 text-center lg:text-justify">
-                ویرالرن متعهد است که مدیریت دوره‌ها، تعاملات، فروش و بازاریابی
-                را برای مدرسان آسان‌تر و کارآمدتر کند.
+                سهولت استفاده برای ما یکی از اصول اصلی است، نه یک گزینه اضافی.
+                محصولات طوری طراحی شده‌اند که نصب و کاربری‌شان ساده و بدون دردسر باشد.
+                تمرکز ما بر کاهش پیچیدگی‌های فنی و صرفه‌جویی در وقت کاربران است.
+                هدف نهایی تجربه‌ای راحت، روان و بدون نیاز به دانش تخصصی است.
               </p>
             </div>
           </div>
@@ -179,11 +174,10 @@ function AboutUsPage() {
         <div className="flex justify-center flex-col max-lg:items-center">
           <h2 className="heading">چشم‌انداز آینده</h2>
           <p className="mt-6 typography opacity-75 text-center lg:text-justify">
-            در ویرالرن همواره در جستجوی نوآوری و بهبود مستمر هستیم. چشم‌انداز
-            ما، ایجاد تجربه‌ای آموزشی است که نه تنها برای مدرسان و دانش‌پذیران
-            بلکه موسسات و آکادمی ها نیز مؤثر باشد. ما متعهدیم تا با
-            به‌روزرسانی‌های مداوم و افزودن امکانات جدید، همیشه در کنار شما
-            باشیم.
+            در {brand.name} چشم‌انداز آینده ما ایجاد محیطی امن و مطمئن برای همه کاربران است، بدون اینکه امنیت پیچیده یا دست‌نیافتنی باشد.
+            می‌خواهیم با توسعه مستمر محصولات و خدمات، استانداردهای جدیدی در حوزه ریموت و قفل‌های ایمنی تعریف کنیم.
+            تمرکز ما بر ترکیب فناوری، نوآوری و سادگی استفاده برای تجربه‌ای بی‌دغدغه است.
+            هدف نهایی تبدیل شدن به مرجعی قابل اعتماد و پیشرو در صنعت امنیت خانگی و صنعتی است.
           </p>
         </div>
         <Image
@@ -195,7 +189,7 @@ function AboutUsPage() {
         />
       </div>
 
-      {/* <TeamCarousel /> */}
+      <Faq />
 
       <Socials />
     </>

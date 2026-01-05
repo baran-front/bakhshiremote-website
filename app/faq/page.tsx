@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import faqPageImage from "@/public/images/faq-page.png";
+import faqPageImage from "@/public/images/faq.png";
 import { getFaqs } from "@/lib/fetchs";
 import {
   Accordion,
@@ -26,22 +26,23 @@ async function FAQPage() {
         <div className="flex flex-col justify-center max-lg:items-center">
           <h1 className="heading">سوالات متداول</h1>
           <p className="mt-3 typography max-lg:text-center">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-            است.
+            در این بخش به سوالاتی پاسخ داده‌ایم که معمولاً قبل از خرید یا استفاده برای کاربران پیش می‌آید.
+            هدف ما شفاف‌سازی، صرفه‌جویی در زمان شما و جلوگیری از سردرگمی‌های رایج است.
+            اگر پاسخ سوالتان را اینجا پیدا کردید، یعنی کارمان را درست انجام داده‌ایم.
           </p>
         </div>
-        <Image
-          width={616}
-          height={393}
-          src={faqPageImage}
-          alt="سوالات متداول"
-          className="max-lg:row-start-1 mx-auto"
-        />
+        <div className="max-lg:row-start-1 flex justify-center items-center">
+          <Image
+            width={256}
+            height={256}
+            src={faqPageImage}
+            alt="سوالات متداول"
+            className="w-full max-w-[256px]"
+          />
+        </div>
       </div>
 
-      <div className="wrapper mt-24 lg:mt-40">
+      <div className="wrapper mt-12 lg:mt-24">
         <Accordion
           type="single"
           collapsible

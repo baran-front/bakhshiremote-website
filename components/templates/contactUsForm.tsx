@@ -48,19 +48,20 @@ function ContactUsForm() {
         onSubmit={handleSubmit(onSubmit)}
         className="card grid grid-cols-1 lg:grid-cols-2 gap-6 p-6"
       >
-        <Image
-          width={384}
-          height={384}
-          alt="ارتباط با ما"
-          src={contactUsFormImage}
-          className="w-1/2 aspect-square mx-auto"
-        />
+        <div className="flex justify-center items-center">
+          <Image
+            width={256}
+            height={256}
+            alt="ارتباط با ما"
+            src={contactUsFormImage}
+            className="w-1/2 aspect-square max-w-[256px]"
+          />
+        </div>
         <div className="flex justify-center flex-col max-lg:items-center">
-          <h1 className="heading">نظرات شما</h1>
+          <h1 className="heading">ارتباط با ما</h1>
           <p className="leading-relaxed max-lg:text-center mt-6">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است
+            برای هر سوال، پیشنهاد یا نیاز به پشتیبانی، می‌توانید از طریق فرم زیر با ما در ارتباط باشید.
+            تیم ما آماده پاسخ‌گویی سریع و راهنمایی شما در زمینه محصولات و خدمات است.
           </p>
           <div className="w-full flex flex-col gap-6 mt-6">
             <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-6">
