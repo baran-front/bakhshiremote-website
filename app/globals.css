@@ -4,13 +4,13 @@
 @font-face {
   font-family: "yekan-bakh";
   font-display: swap;
-  src: url("/fonts/yekan-bakh/yekan-bakh-medium.ttf");
+  src: url("/fonts/yekan-bakh/yekan-bakh.ttf");
 }
 
 @font-face {
   font-family: "yekan-bakh-bold";
   font-display: swap;
-  src: url("/fonts/yekan-bakh/yekan-bakh-semi-bold.ttf");
+  src: url("/fonts/yekan-bakh/yekan-bakh-bold.ttf");
 }
 
 @custom-variant dark (&:is(.dark *));
@@ -62,7 +62,7 @@
 }
 
 @utility title {
-  @apply text-lg lg:text-xl;
+  @apply font-yekan-bakh-bold text-lg lg:text-xl;
 }
 
 @utility typography {
