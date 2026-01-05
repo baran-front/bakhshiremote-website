@@ -11,7 +11,7 @@ async function ContactUsPage() {
 
   return (
     <>
-      <Breadcrumbs links={[{ name: "درباره ما", href: "/about-us" }]} />
+      <Breadcrumbs links={[{ name: "ارتباط با ما", href: "/contact-us" }]} />
 
       <ContactUsForm />
 
