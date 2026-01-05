@@ -1,10 +1,5 @@
 import { Button } from "@/components/ui/button";
-import {
-  InputGroup,
-  InputGroupButton,
-  InputGroupInput,
-} from "@/components/ui/input-group";
-import { ChevronLeftIcon, CopyIcon, UsersIcon } from "lucide-react";
+import { ChevronLeftIcon, UsersIcon } from "lucide-react";
 import {
   Table,
   TableBody,
@@ -26,6 +21,7 @@ import Link from "next/link";
 import { getMe } from "@/lib/fetchs";
 import SetRepresentativeButton from "@/components/templates/setRepresentativeButton";
 import { cookies } from "next/headers";
+import CopyInput from "@/components/modules/copyInput";
 
 async function DashboardReferralPage() {
   const token = (await cookies()).get("token")?.value || "";
@@ -53,15 +49,7 @@ async function DashboardReferralPage() {
         <div className="flex items-center max-sm:flex-col-reverse gap-3 md:mr-auto max-md:w-full">
           <SetRepresentativeButton />
           <div className="h-9 w-px bg-foreground/10 max-sm:hidden" />
-          <InputGroup dir="ltr" className="max-md:flex-1 md:w-72">
-            <InputGroupButton size={"icon-sm"}>
-              <CopyIcon className="text-primary" />
-            </InputGroupButton>
-            <InputGroupInput
-              type="text"
-              defaultValue={user.result?.representative}
-            />
-          </InputGroup>
+          <CopyInput className="max-md:flex-1 md:w-72" copyValue={user.result?.representative || ""} />
         </div>
       </div>
 
