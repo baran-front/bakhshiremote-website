@@ -10,6 +10,7 @@ import SearchParamsSearch from "@/components/modules/searchParamsSearch";
 import SpPagination from "@/components/modules/spPagination";
 import ArticleCard from "@/components/modules/articleCard";
 import Breadcrumbs from "@/components/modules/breadcrumbs";
+import ArticlesMobileDrawer from "@/components/templates/articlesMobileDrawer";
 
 async function ArticlesPage({ searchParams }: NextPageProps) {
   const sp = await searchParams;
@@ -45,17 +46,19 @@ async function ArticlesPage({ searchParams }: NextPageProps) {
         <div className="flex items-center max-lg:flex-col gap-3 mt-6">
           <h6 className="heading lg:pe-6 lg:border-e-2">دسته بندی مقالات</h6>
 
-          <SearchParamsSearch
-            className="w-full lg:w-96 max-w-full"
-            placeholder="جستجو مقالات..."
-          />
-
-          <SelectSearchParamsFilter
-            className="w-full lg:w-52 max-w-full"
-            searchParamsKey="category"
-            options={categoryOptions}
-            placeholder="دسته بندی..."
-          />
+          <div className="max-lg:w-full flex items-center justify-center gap-3">
+            <SearchParamsSearch
+              className="w-full lg:w-96"
+              placeholder="جستجو مقالات..."
+            />
+            <SelectSearchParamsFilter
+              className="w-52 max-w-full max-lg:hidden"
+              searchParamsKey="category"
+              options={categoryOptions}
+              placeholder="دسته بندی..."
+            />
+            <ArticlesMobileDrawer categories={categoryOptions} />
+          </div>
         </div>
 
         <div className="card-grid-wrapper mt-6">
