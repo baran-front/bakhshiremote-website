@@ -109,7 +109,7 @@ function Footer() {
                       "--social-shadow-color": item.description,
                     } as CSSProperties
                   }
-                  className="outline-2 outline-offset-2 outline-transparent rounded-full transition-colors hover:outline-(--social-shadow-color)"
+                  className="outline-2 outline-offset-2 outline-transparent rounded-full transition-colors p-px hover:outline-primary"
                   href={item.linkUrl || ""}
                   key={item.id}
                 >
@@ -118,6 +118,7 @@ function Footer() {
                     height={32}
                     alt={item.name || ""}
                     src={brand.apiBaseUrl + (item.imageUrl || "")}
+                    className="rounded-full"
                   />
                 </Link>
               ))}

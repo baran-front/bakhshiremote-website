@@ -7,9 +7,9 @@ import { cn } from "@/lib/utils";
 function Breadcrumbs({ links }: { links: { name: string; href: string }[] }) {
   return (
     <div className="wrapper mt-3 lg:mt-6">
-      <div className="flex items-center overflow-x-auto gap-1">
+      <div className="flex items-center overflow-x-auto">
         <Link href={"/"}>
-          <Button variant={"unstyled"} className="hover:text-primary">
+          <Button size={"sm"} variant={"unstyled"} className="hover:text-primary px-2">
             <HomeIcon />
             <span>صفحه اصلی</span>
           </Button>
@@ -23,7 +23,7 @@ function Breadcrumbs({ links }: { links: { name: string; href: string }[] }) {
                 variant={"unstyled"}
                 className={cn(
                   index + 1 === links.length ? "font-yekan-bakh-semi-bold" : "",
-                  "hover:text-primary"
+                  "hover:text-primary px-2"
                 )}
               >
                 <span>{item.name}</span>

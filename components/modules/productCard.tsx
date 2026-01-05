@@ -76,7 +76,7 @@ function ProductCard({
       )}
       <Button
         variant={"unstyled"}
-        className="w-full bg-black/10 group-hover:bg-primary group-hover:text-white shadow-lg shadow-transparent hover:shadow-primary/50"
+        className={`w-full bg-black/10 group-hover:bg-primary group-hover:text-white shadow-lg shadow-transparent hover:shadow-primary/50 max-lg:in-[.swiper-slide-active]:bg-primary max-lg:in-[.swiper-slide-active]:text-white max-lg:in-[.swiper-slide-active]:shadow-primary/50`}
       >
         <span>جزئیات</span>
         <ArrowLeftIcon />

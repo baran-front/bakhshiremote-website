@@ -36,7 +36,7 @@ function AboutUsPage() {
       </div>
 
       <div className="wrapper mt-24 lg:mt-40 grid grid-cols-1 lg:grid-cols-3 gap-12">
-        <div className="flex justify-center flex-col max-lg:items-center col-span-2">
+        <div className="flex justify-center flex-col max-lg:items-center lg:col-span-2">
           <h1 className="heading">داستان ما</h1>
           <p className="mt-6 typography opacity-75 text-center lg:text-justify">
             داستان ما از جایی شروع شد که فهمیدیم امنیت نباید پیچیده، گران یا نمایشی باشد.
@@ -112,7 +112,7 @@ function AboutUsPage() {
             height={393}
             alt="Our mission"
             src={aboutUsOurValuesImg}
-            className="rounded-2xl w-full h-auto sticky top-26"
+            className="rounded-2xl w-full h-auto lg:sticky lg:top-26"
           />
           <div className="flex justify-center flex-col gap-6 max-lg:items-center">
             <div className="card p-6 group border border-transparent hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/10">

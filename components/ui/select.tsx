@@ -250,7 +250,7 @@ function SelectSearch({
   const { searchTerm, setSearchTerm } = searchContext;
 
   return (
-    <div className="sticky top-0 z-10 mb-1.5 bg-card">
+    <div className="sticky top-0 z-10 mb-1.5 bg-background rounded-full">
       <div className="relative">
         <SearchIcon className="absolute right-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground" />
         <Input

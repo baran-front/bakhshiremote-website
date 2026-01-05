@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 
 function ArticleCard({ article }: { article: ArticleT }) {
   return (
-    <Link href={`/articles/${article.id}`} className="card card-hover flex flex-col">
+    <Link href={`/articles/${article.id}`} className="card card-hover flex flex-col group hover:bg-transparent border-2 border-transparent transition-all hover:border-primary shadow-2xl shadow-transparent hover:shadow-primary/30">
       <Image
         width={373}
         height={210}
@@ -26,7 +26,7 @@ function ArticleCard({ article }: { article: ArticleT }) {
       <Button
         size={"icon"}
         variant={"ghost"}
-        className="w-full bg-foreground/5 shadow-lg hover:bg-foreground/10 mt-auto"
+        className={`w-full bg-black/10 group-hover:bg-primary group-hover:text-white shadow-lg shadow-transparent hover:shadow-primary/50 max-lg:in-[.swiper-slide-active]:bg-primary max-lg:in-[.swiper-slide-active]:text-white max-lg:in-[.swiper-slide-active]:shadow-primary/50 mt-auto`}
       >
         <span>مشاهده مطلب</span>
         <ArrowLeftIcon className="size-5" />

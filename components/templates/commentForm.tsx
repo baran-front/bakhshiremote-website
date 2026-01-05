@@ -65,7 +65,7 @@ function CommentForm({ type, typeId }: Props) {
     >
       <p className="title">ثبت دیدگاه</p>
 
-      <div className="flex items-center max-sm:flex-col gap-3">
+      <div className="flex items-start max-sm:flex-col gap-3">
         <div className="w-full sm:w-1/2">
           <label className="text-xs">
             نام و نام خانوادگی <span className="text-red-500">*</span>
@@ -82,7 +82,7 @@ function CommentForm({ type, typeId }: Props) {
             </InputGroupAddon>
           </InputGroup>
           {errors.fullName && (
-            <p className="text-red-500 text-xs pr-2">
+            <p className="text-red-500 text-xs mt-2">
               {errors.fullName.message}
             </p>
           )}
@@ -91,7 +91,7 @@ function CommentForm({ type, typeId }: Props) {
           <label className="text-xs">
             به مقاله چه امتیازی می دهید؟ <span className="text-red-500">*</span>
           </label>
-          <div className="mt-1.5 border-input dark:bg-input/30 flex w-full items-center justify-between rounded-md border shadow-xs transition-all outline-none h-12 min-w-0 px-2">
+          <div className="mt-1.5 border-input dark:bg-input/30 flex w-full items-center justify-between rounded-full border shadow-xs transition-all outline-none h-9 min-w-0 px-2">
             <div className="flex items-center gap-0.5">
               {[1, 2, 3, 4, 5].map((star) => (
                 <button
@@ -102,9 +102,8 @@ function CommentForm({ type, typeId }: Props) {
                   className="transition-transform not-active:hover:scale-125"
                 >
                   <StarIcon
-                    className={`size-5 transition-colors ${
-                      star <= rating ? "text-yellow-500 fill-yellow-500" : ""
-                    }`}
+                    className={`size-5 transition-colors ${star <= rating ? "text-yellow-500 fill-yellow-500" : ""
+                      }`}
                   />
                 </button>
               ))}
@@ -134,8 +133,8 @@ function CommentForm({ type, typeId }: Props) {
         <p className="text-red-500 text-xs pr-2">{errors.title.message}</p>
       )}
 
-      <div className="f-align justify-end">
-        <Button type="submit" disabled={isSubmitting}>
+      <div className="flex justify-end w-full">
+        <Button type="submit" className="mr-auto" disabled={isSubmitting}>
           {isSubmitting ? "در حال ارسال..." : "ارسال نظر"}
         </Button>
       </div>
