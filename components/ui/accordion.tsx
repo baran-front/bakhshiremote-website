@@ -35,7 +35,7 @@ function AccordionTrigger({
       <AccordionPrimitive.Trigger
         data-slot="accordion-trigger"
         className={cn(
-          "flex-1 flex items-center text-right font-yekan-bakh-semi-bold justify-between gap-3 transition-all disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:-scale-y-100",
+          "flex-1 flex items-center text-right font-yekan-bakh-bold justify-between gap-3 transition-all disabled:pointer-events-none disabled:opacity-50 [&[data-state=open]>svg]:-scale-y-100 title",
           className
         )}
         {...props}
@@ -58,7 +58,7 @@ function AccordionContent({
       className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
       {...props}
     >
-      <div className={cn("py-6", className)}>{children}</div>
+      <div className={cn("typhography pt-6", className)}>{children}</div>
     </AccordionPrimitive.Content>
   );
 }

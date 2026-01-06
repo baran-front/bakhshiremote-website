@@ -41,7 +41,7 @@ async function Faq() {
       </div>
 
       <div>
-        <Accordion collapsible type="single" className="space-y-3">
+        <Accordion collapsible type="single" className="space-y-6">
           {faqs.result?.data?.map((item) => (
             <AccordionItem
               key={item.id}
