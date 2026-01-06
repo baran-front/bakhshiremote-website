@@ -110,25 +110,27 @@ async function ArticleDetailPage({ params }: NextPageProps) {
                 ))
                 : null}
             </div>
-          )) : <p className="card">هیچ نظری ثبت نشده است</p>}
+          )) : <p className="card">هیچ نظری ثبت نشده است</p >}
         </div>
       </div>
 
-      <div className="wrapper mt-24 lg:mt-40">
-        <div className="flex items-center justify-between">
-          <h6 className="heading">مقالات مشابه</h6>
-          <Button variant={"soft"}>
-            <span>مشاهده همه</span>
-            <ArrowLeftIcon className="size-5" />
-          </Button>
-        </div>
+      {articles.result?.data?.data?.length ? (
+        <div className="wrapper mt-24 lg:mt-40">
+          <div className="flex items-center justify-between">
+            <h6 className="heading">مقالات مشابه</h6>
+            <Button variant={"soft"}>
+              <span>مشاهده همه</span>
+              <ArrowLeftIcon className="size-5" />
+            </Button>
+          </div>
 
-        <div className="card-flex-wrapper mt-6">
-          {articles.result?.data?.data?.map((item) => (
-            <ArticleCard key={item.id} article={item} />
-          ))}
+          <div className="card-flex-wrapper mt-6">
+            {articles.result.data.data.map((item) => (
+              <ArticleCard key={item.id} article={item} />
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
     </>
   );
 }

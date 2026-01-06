@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import {
   MessageSquareTextIcon,
   Share2Icon,
-  ThumbsDownIcon,
   ThumbsUpIcon,
 } from "lucide-react";
 import { Button } from "../ui/button";
@@ -73,19 +72,19 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
             width={1216}
             height={684}
             alt={article.title}
-            className="w-full aspect-video rounded-lg max-lg:row-start-1"
+            className="w-full aspect-video rounded-2xl max-lg:row-start-1"
             src={brand.apiBaseUrl + (article.imageUrl || "")}
           />
         </div>
 
         <div className="grid mt-6 grid-cols-1 lg:grid-cols-12 gap-6">
-          <div className="flex h-max items-center justify-center flex-col gap-6 sticky top-26 max-lg:hidden">
-            <Button className="flex-col" variant={"ghost"}>
+          <div className="flex h-max items-center justify-center flex-col gap-3 sticky top-26 max-lg:hidden">
+            <Button className="flex-col h-max" variant={"ghost"}>
               <ThumbsUpIcon />
               <span>2</span>
             </Button>
 
-            <Button className="flex-col" variant={"ghost"}>
+            <Button className="flex-col h-max" variant={"ghost"}>
               <MessageSquareTextIcon />
               <span>56</span>
             </Button>
@@ -96,7 +95,7 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
               title={article.title}
             />
 
-            <div className="w-1.5 h-[30vh] rounded-full bg-card">
+            <div className="w-1.5 h-[30vh] rounded-full bg-card mt-3">
               <motion.div
                 className="w-full rounded-full bg-secondary relative"
                 style={{ height: heightPercentage }}
@@ -107,30 +106,25 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
           </div>
 
           {/* Article content */}
-          <div ref={articleContentRef} className="h-max lg:col-span-8">
-            <div className="cms" dangerouslySetInnerHTML={{ __html: article.content }} />
+          <div ref={articleContentRef} className="cms h-max lg:col-span-8">
+            <div dangerouslySetInnerHTML={{ __html: article.content }} />
 
             <div className="pt-6 mt-6 border-t-2">
               <div className="card shadow-lg flex items-center gap-3 space-y-0 max-lg:flex-col">
                 <div className="flex items-center max-sm:flex-col gap-3">
                   <p>این مقاله رو دوست داشتی؟</p>
-                  <div className="flex items-center gap-3">
-                    <Button variant={"ghost"} size={"icon"}>
-                      <ThumbsUpIcon />
-                    </Button>
-                    <Button variant={"ghost"} size={"icon"}>
-                      <ThumbsDownIcon />
-                    </Button>
-                  </div>
+                  <Button variant={"ghostPrimary"} size={"icon"}>
+                    <ThumbsUpIcon />
+                  </Button>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Button variant={"ghost"} className="mr-auto">
+                  <Button variant={"ghostPrimary"} className="mr-auto">
                     <MessageSquareTextIcon />
                     <span>ثبت دیدگاه</span>
                   </Button>
                   <ShareButton
                     size={"default"}
-                    variant={"ghost"}
+                    variant={"ghostPrimary"}
                     title={article.title}
                   >
                     <Share2Icon />
@@ -151,15 +145,15 @@ function ArticleDetailContent({ article }: { article: ArticleT }) {
         </div>
       </div>
       <div className="flex h-20 bg-background border-t-2 items-center justify-around fixed bottom-0 left-0 right-0 lg:hidden z-40">
-        <Button variant={"ghost"}>
+        <Button variant={"ghostPrimary"}>
           <ThumbsUpIcon />
           <span>2</span>
         </Button>
-        <Button variant={"ghost"}>
+        <Button variant={"ghostPrimary"}>
           <MessageSquareTextIcon />
           <span>56</span>
         </Button>
-        <ShareButton variant={"ghost"} title={article.title} />
+        <ShareButton variant={"ghostPrimary"} title={article.title} />
 
         <div className="h-2 w-full bg-card absolute bottom-0 left-0 right-0">
           <motion.div
