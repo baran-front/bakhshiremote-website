@@ -1,6 +1,6 @@
 # Bakhshiremote Website
 
-A Next.js 16 e-commerce website built with TypeScript, Tailwind CSS, React Query, and React Hook Form.
+A Next.js 16 E-commerce website built with TypeScript, Tailwind CSS, React Query, and React Hook Form.
 
 ---
 
